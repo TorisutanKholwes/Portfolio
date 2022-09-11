@@ -1,0 +1,35 @@
+#skillsTitle {
+  text-align: center;
+  padding-top: 1.5vh;
+  padding-bottom: 2.5vh;
+}
+
+.logo {
+    $size: 50px;
+    width: $size;
+    height: $size;
+  }
+
+.progress {
+  height: 10px;
+}
+
+#skill {
+  width: 30vw;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+#skill td{
+  body[data-theme="dark"] & {
+    background-color: #242933;
+  }
+  body[data-theme="light"] & {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+#skill td, #skill th {
+  text-align: center;
+  padding: 0.5vh;
+}
