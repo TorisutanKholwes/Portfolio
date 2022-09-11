@@ -1,8 +1,10 @@
 import React from "react";
-import Header from "./component/Header";
-import Profile from "./component/Profile";
 import {getCookie} from "./utils/cookie";
 import "./App.scss"
+
+import Header from "./component/Header";
+import Profile from "./component/Profile";
+import Skills from "./component/Skills";
 
 export default class App extends React.Component {
 
@@ -21,6 +23,7 @@ export default class App extends React.Component {
             <>
                 <Header />
                 <Profile />
+                <Skills />
             </>
         );
     }
