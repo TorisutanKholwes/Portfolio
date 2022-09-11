@@ -1,8 +1,11 @@
 {
+  "title": "Salut \uD83D\uDC4B\uD83C\uDFFB, je suis Tristan !",
   "profile": "Profil",
   "skills": "Compétences",
   "projects": "Projets",
   "software": "Logiciels",
   "contact": "Contact",
+  "lang": "🇫🇷",
+  "lang-alt": "Français 🇫🇷",
   "error":  "Erreur : texte non trouvé"
 }

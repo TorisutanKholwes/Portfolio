@@ -1,1 +1,11 @@
-{"error":  "Error : text not found"}
+{
+  "title": "Hello \uD83D\uDC4B\uD83C\uDFFB, I'm Tristan !",
+  "profile": "Profile",
+  "skills": "Skills",
+  "projects": "Projects",
+  "software": "Software",
+  "contact": "Contact",
+  "error":  "Error : text not found",
+  "lang": "🇺🇸",
+  "lang-alt": "English 🇺🇸"
+}
