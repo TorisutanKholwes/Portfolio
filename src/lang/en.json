@@ -6,6 +6,11 @@
   "projects": "Projects",
   "software": "Software",
   "contact": "Contact",
+  "presentation": "Presentation",
+  "myStats": "My stats",
+  "hourCodeTotal": "Number of code hours since February 2021 :",
+  "hourCodeAverage": "Average number of hours of code per day since February 2021 :",
+  "infoHour": "These statistics are calculated when the WakaTime plugin is enabled on my IDE. They are not necessarily accurate.",
   "error":  "Error : text not found",
   "lang": "🇺🇸",
   "lang-alt": "English 🇺🇸"
