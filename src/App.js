@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./component/Header";
+import Profile from "./component/Profile";
 import {getCookie} from "./utils/cookie";
 import "./App.scss"
 
@@ -17,7 +18,10 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <Header />
+            <>
+                <Header />
+                <Profile />
+            </>
         );
     }
 }
