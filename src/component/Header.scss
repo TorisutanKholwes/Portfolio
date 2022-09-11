@@ -1,5 +1,13 @@
 #header {
   height: 80vh;
+  body[data-theme="dark"] & {
+    background: url("../resources/headerBgDark.jpg");
+    background-size: cover;
+  }
+  body[data-theme="light"] & {
+    background: url("../resources/headerBg.jpg");
+    background-size: cover;
+  }
 }
 
 .toolbar {
