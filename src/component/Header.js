@@ -20,7 +20,6 @@ export default class Header extends React.Component {
         window.location.reload()
     }
 
-
     render() {
         return (
         <header>
@@ -31,7 +30,7 @@ export default class Header extends React.Component {
                     <li>{getText("projects")}</li>
                     <li>{getText("software")}</li>
                     <li>{getText("contact")}</li>
-                    <li style={{float: "right"}} onClick={this.changeTheme}><img id="themeImg" src={(getCookie("theme") === "light") ? sun : moon}/></li>
+                    <li style={{float: "right"}} onClick={this.changeTheme}><img id="themeImg" src={(getCookie("theme") === "light") ? sun : moon} alt="light and dark button"/></li>
                     <div className="lang">
                         <li id="langText" style={{float: "right"}}>{getText("lang")}</li>
                         <div style={{float: "right"}} className="langList">
@@ -42,7 +41,10 @@ export default class Header extends React.Component {
                     </div>
                 </ul>
             </nav>
-            <h1>{getText("title")}</h1>
+            <div id="titleDesc">
+                <h1 id="title">{getText("title")}</h1>
+                <h5 id="mini-desc">{getText("mini-desc")}</h5>
+            </div>
         </header>
         );
     }
