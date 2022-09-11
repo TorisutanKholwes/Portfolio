@@ -11,6 +11,9 @@
   "hourCodeTotal": "Nombre d'heures de code depuis Février 2021 :",
   "hourCodeAverage": "Nombre d'heures de code par jour en moyenne depuis Février 2021 :",
   "infoHour": "Ces statistiques sont calculées lorsque le plugin WakaTime est activé sur mon IDE. Elles ne sont pas forcément exactes.",
+  "tableLogo": "Logo",
+  "tableTitle": "Titre",
+  "tableLevel": "Niveau",
   "lang": "🇫🇷",
   "lang-alt": "Français 🇫🇷",
   "error":  "Erreur : texte non trouvé"
