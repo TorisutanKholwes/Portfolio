@@ -22,7 +22,7 @@ export default class Header extends React.Component {
 
     render() {
         return (
-        <header>
+        <header id="header">
             <nav className="toolbar">
                 <ul>
                     <li>{getText("profile")}</li>
