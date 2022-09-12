@@ -67,6 +67,7 @@ export default class Skills extends React.Component {
 
     setSkills() {
         let tableBody = document.getElementById("tableBody")
+        tableBody.innerHTML = ""
         this.techno.forEach((techno) => {
             let row = document.createElement("tr")
             let logo = document.createElement("td")
@@ -96,7 +97,6 @@ export default class Skills extends React.Component {
         return (
         <div id="skills">
             <h1 id="skillsTitle">{getText("skills")}</h1>
-            <div id="skillsContent">
             <table id="skill">
                    <thead>
                        <tr>
@@ -115,7 +115,6 @@ export default class Skills extends React.Component {
                         </tr>
                    </tfoot>
             </table>
-            </div>
         </div>
     )
   }
