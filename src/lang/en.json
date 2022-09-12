@@ -20,6 +20,9 @@
   "githubLink": "Github link",
   "projectUnavailable": "Unavailable project",
   "projectAvailable": "Available project",
+  "companyName": "Company name",
+  "softwareUse": "Software usage",
+  "softwareLink": "Link",
   "error":  "Error : text not found",
   "lang": "🇺🇸",
   "lang-alt": "English 🇺🇸"

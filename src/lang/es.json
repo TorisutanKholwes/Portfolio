@@ -20,6 +20,9 @@
   "githubLink": "Enlace a Github",
   "projectUnavailable": "Proyecto no disponible",
   "projectAvailable": "Proyecto disponible",
+  "companyName": "Nombre de la empresa",
+  "softwareUse": "Tasa de utilización",
+  "softwareLink": "Enlace",
   "error":  "Error: texto no encontrado",
   "lang": "🇪🇸",
   "lang-alt": "Español 🇪🇸"
