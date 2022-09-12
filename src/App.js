@@ -6,6 +6,7 @@ import Header from "./component/Header";
 import Profile from "./component/Profile";
 import Skills from "./component/Skills";
 import Project from "./component/Project";
+import Software from "./component/Software";
 
 export default class App extends React.Component {
 
@@ -26,6 +27,7 @@ export default class App extends React.Component {
                 <Profile />
                 <Skills />
                 <Project />
+                <Software />
             </>
         );
     }
