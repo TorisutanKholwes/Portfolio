@@ -5,6 +5,7 @@ import "./App.scss"
 import Header from "./component/Header";
 import Profile from "./component/Profile";
 import Skills from "./component/Skills";
+import Project from "./component/Project";
 
 export default class App extends React.Component {
 
@@ -24,6 +25,7 @@ export default class App extends React.Component {
                 <Header />
                 <Profile />
                 <Skills />
+                <Project />
             </>
         );
     }
