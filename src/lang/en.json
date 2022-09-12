@@ -14,6 +14,12 @@
   "tableLogo": "Logo",
   "tableTitle": "Title",
   "tableLevel": "Level",
+  "portfolioDescription": "This is the site where you are. This site allows to display all my experience in computer development",
+  "javawarsDescription": "JavaWars 2 is an API of the game Guild Wars 2 in Java which makes it possible to recover information most easily possible thanks to classes simple of use and documented",
+  "projectLanguage": "Used language :",
+  "githubLink": "Github link",
+  "projectUnavailable": "Unavailable project",
+  "projectAvailable": "Available project",
   "error":  "Error : text not found",
   "lang": "🇺🇸",
   "lang-alt": "English 🇺🇸"
