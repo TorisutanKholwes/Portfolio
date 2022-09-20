@@ -1,0 +1,47 @@
+body {
+  cursor: none;
+}
+
+#cursor {
+  width: 2rem;
+  height: 2rem;
+  body[data-theme="dark"] & {
+    border: 2.5px solid white;
+  }
+  body[data-theme="light"] & {
+    border: 2.5px solid black;
+  }
+  border-radius: 50%;
+  position: absolute;
+  top: -10rem;
+  left: -10rem;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transform-origin: 100% 100%;
+  transition: all .3s ease;
+  transition-property: background, transform;
+
+  @media only screen and (max-width: 62.5em) { // tab-land
+    opacity: 0;
+  }
+}
+
+
+#cursor.expand {
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  animation: 250ms cursorAnimation;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes cursorAnimation {
+  from {
+    width: 2rem;
+    height: 2rem;
+  }
+  to {
+    width: 1rem;
+    height: 1rem;
+  }
+}
