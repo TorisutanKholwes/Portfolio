@@ -80,6 +80,7 @@ export default class Skills extends React.Component {
             title.innerHTML = techno.title
             let progress = document.createElement("div")
             progress.className = "progress"
+            progress.style.backgroundColor = techno.color + "33"
             let progressBar = document.createElement("div")
             progressBar.className = "progress-bar"
             progressBar.style.width = techno.level + "%"
