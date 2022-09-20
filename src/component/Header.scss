@@ -19,7 +19,6 @@
   }
     & li {
       float: left;
-      cursor: pointer;
 
       display: block;
       text-align: center;
@@ -61,6 +60,10 @@
       background-color: rgba(0, 0, 0, 0.2);
     }
   }
+}
+
+#langText {
+  cursor: none;
 }
 
 .lang:hover .langList {
