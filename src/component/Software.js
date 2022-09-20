@@ -85,7 +85,7 @@ export default class Software extends React.Component {
                     use.innerHTML += `<i class="fa fa-star"></i>`;
                 }
             }
-            link.innerHTML = `<a href="${software.link}">${software.link}</a>`;
+            link.innerHTML = `<a class="softwareLink" href="${software.link}">${software.link}</a>`;
             row.appendChild(logo);
             row.appendChild(title);
             row.appendChild(company);
