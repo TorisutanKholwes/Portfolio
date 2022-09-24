@@ -15,7 +15,7 @@ export default class Contact extends React.Component {
     }
 
     copyUsername() {
-        navigator.clipboard.writeText("Torisutan#0146");
+        navigator.clipboard.writeText("Torisutan#0001");
         document.getElementById("copyLink").style.display = "block";
         setTimeout(() => {
             document.getElementById("copyLink").style.display = "none";
