@@ -7,6 +7,16 @@ import moon from "../resources/moon.svg"
 
 export default class Header extends React.Component {
 
+    constructor(props) {
+        super(props);
+        setTimeout(() => {
+            let part = document.getElementsByClassName("toolbarPart");
+            for (let i = 0; i < part.length; i++) {
+                part[i].addEventListener("click", this.goToPart);
+            }
+        })
+    }
+
     changeTheme = () => {
         let newTheme = getCookie("theme") === "light" ? "dark" : "light";
         setCookie("theme", newTheme);
@@ -20,16 +30,22 @@ export default class Header extends React.Component {
         window.location.reload()
     }
 
+    goToPart = event => {
+        let target = event.target;
+        let value = parseInt(target.getAttribute("goto"));
+        window.scrollTo({top: value, behavior: "smooth"});
+    }
+
     render() {
         return (
         <header id="header">
             <nav className="toolbar">
                 <ul>
-                    <li>{getText("profile")}</li>
-                    <li>{getText("skills")}</li>
-                    <li>{getText("projects")}</li>
-                    <li>{getText("software")}</li>
-                    <li>{getText("contact")}</li>
+                    <li className="toolbarPart" goto="655">{getText("profile")}</li>
+                    <li className="toolbarPart" goto="1255">{getText("skills")}</li>
+                    <li className="toolbarPart" goto="1830">{getText("projects")}</li>
+                    <li className="toolbarPart" goto="2250">{getText("software")}</li>
+                    <li className="toolbarPart" goto="2800">{getText("contact")}</li>
                     <li style={{float: "right"}} onClick={this.changeTheme}><img id="themeImg" src={(getCookie("theme") === "light") ? sun : moon} alt="light and dark button"/></li>
                     <div className="lang">
                         <li id="langText" style={{float: "right"}}>{getText("lang")}</li>
