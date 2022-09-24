@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Contact.scss";
+import { getText } from "../utils/text";
 
 import github from "../resources/github.svg";
 import instagram from "../resources/instagram.svg"
@@ -25,6 +26,7 @@ export default class Contact extends React.Component {
         return (
         <div id="contact">
             <h1 id="contactTitle">Contact</h1>
+            <p id="contactText">{getText("contactText")}</p>
             <div id="contactDiv">
                 <img className="contactImage" onClick={this.copyUsername} src={discord} alt=""/>
                 <img className="contactImage" onClick={this.openContactLink} link="https://github.com/TorisutanKholwes" src={github} alt=""/>
