@@ -23,6 +23,7 @@
   "companyName": "Nom de l'entreprise",
   "softwareUse": "Taux d'utilisation",
   "softwareLink": "Lien",
+  "contactText": "Vous pouvez me contacter via les réseaux sociaux ci-dessous ou via mon adresse mail :",
   "lang": "🇫🇷",
   "lang-alt": "Français 🇫🇷",
   "error":  "Erreur : texte non trouvé"
