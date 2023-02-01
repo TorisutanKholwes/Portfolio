@@ -16,6 +16,7 @@ body[data-theme="dark"] .profile {
 #presentation {
     width: 45vw;
     margin: auto;
+    text-align: justify;
     body[data-theme="dark"] & {
         border: solid 1px white;
     }
