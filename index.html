@@ -6,7 +6,204 @@
     <link rel="stylesheet" href="index.scss">
 </head>
 <body>
-    <h1>Salut, je suis Tristan !</h1>
-    <p>Test2</p>
+    <header>
+        <div id="sun">
+            <img src="assets/icons/sun.svg" alt="Sun">
+        </div>
+        <nav id="tab">
+            <ul id="tab-nav">
+                <li>Profil</li>
+                <li>Compétences</li>
+                <li>Projets</li>
+                <li>Logiciels</li>
+                <li>Contact</li>
+                <li class="no-select">
+                    <div id="language">
+                        <input type="checkbox" id="show-language">
+                        <label for="show-language">
+                            <div id="current-language">
+                                <p class="languages active" id="current">FR</p>
+                                <img id="chevron" src="assets/icons/chevron.svg" alt="">
+                            </div>
+                        </label>
+                        <div id="other-language">
+                            <p class="languages">EN</p>
+                            <p class="languages">ES</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="name">
+            <img id="logo" src="./assets/logo/logoBlue.svg" alt="Logo">
+            <div id="baseline">
+                <h1>Salut, je suis Tristan !</h1>
+                <h2>Un développeur <span class="devtype">Java</span>, <span class="devtype">Python</span> et <span class="devtype">Web</span></h2>
+            </div>
+        </div>
+    </header>
+    <div class="section" id="profile">
+        <h3 text="Profil">Profil</h3>
+        <div id="profildesc">
+            <img width="100" id="profile-picture" src="./assets/profile_picture.jpg" alt="Ma photo">
+            <div id="profiltext">
+                <p id="description">Bienvenue sur mon site web, je m'appelle Tristan Clowez et je suis un développeur informatique passionné de 17 ans. J'ai déjà 4 ans d'expérience dans ce domaine et je me spécialise dans les langages Java, Python ainsi que les technologies front-end (HTML, CSS et JavaScript). Je travaille également de temps en temps avec du back-end en utilisant NodeJS. Je suis actuellement en terminale avec comme spécialités les NSI et les mathématiques et mon objectif est de poursuivre mon parcours académique en intégrant un cycle ingénieur après mon bac. Sur ce site, vous pourrez découvrir mes projets et mes compétences en développement. Je suis toujours en train d'apprendre et de me perfectionner dans ce domaine et je suis ravi de partager mon travail et mes réalisations avec vous. Je suis passionné par la technologie et je suis déterminé à devenir un expert en ingénierie informatique. J'espère que vous apprécierez votre visite.</p>
+                <div id="total-code">
+                    <div class="code">
+                        <img src="assets/icons/clock.svg" alt="Horloge">
+                        <h4>487h 44m</h4>
+                    </div>
+                    <p>Nombre d'heures de code depuis Février 2021 :</p>
+                </div>
+                <div id="daily-code">
+                    <div class="code">
+                        <img src="assets/icons/calendarClock.svg" alt="Calendrier">
+                        <h4>2h 10m</h4>
+                    </div>
+                    <p>Nombre d'heures de code par jour en moyenne depuis Février 2021 :</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="skill">
+        <h3 text="Compétences">Compétences</h3>
+        <section class="language-skill">
+            <img src="assets/software/electron.svg" alt="Electron JS">
+            <p class="skill-name">Electron</p>
+            <p class="skill-level">70%</p>
+            <div class="skill-bar"></div>
+        </section>
+        <section class="language-skill">
+            <img src="assets/software/java.svg" alt="Java">
+            <p class="skill-name">Java</p>
+            <p class="skill-level">90%</p>
+            <div class="skill-bar"></div>
+        </section>
+        <section class="language-skill">
+            <img src="assets/software/python.svg" alt="Python">
+            <p class="skill-name">Python</p>
+            <p class="skill-level">60%</p>
+            <div class="skill-bar"></div>
+        </section>
+        <section class="language-skill">
+            <img src="assets/software/sass.svg" alt="SASS">
+            <p class="skill-name">Sass</p>
+            <p class="skill-level">50%</p>
+            <div class="skill-bar"></div>
+        </section>
+        <section class="language-skill">
+            <img src="assets/software/html.svg" alt="HTML">
+            <p class="skill-name">Front-End</p>
+            <p class="skill-level">80%</p>
+            <div class="skill-bar"></div>
+        </section>
+        <section class="language-skill">
+            <img src="assets/software/nodejs.svg" alt="Node JS">
+            <p class="skill-name">Node JS</p>
+            <p class="skill-level">40%</p>
+            <div class="skill-bar"></div>
+        </section>
+        <section class="language-skill">
+            <img src="assets/software/react.svg" alt="React">
+            <p class="skill-name">React</p>
+            <p class="skill-level">60%</p>
+            <div class="skill-bar"></div>
+        </section>
+    </div>
+    <div class="section" id="project">
+        <h3 text="Projets">Projets</h3>
+        <div id="project-list">
+            <div id="portfolio">
+                <img src="https://media.discordapp.net/attachments/896690238418743327/1095716106070675567/image.png?width=1021&height=702" alt="">
+                <div id="project-desc">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.</p>
+                    <p>Langage utilisé : <strong>React JS</strong> et <strong>SCSS</strong></p>
+                </div>
+            </div>
+        </div>
+        <img src="assets/arrow/arrowLeftActif.svg" alt="">
+        <img src="assets/arrow/arrowRightHover.svg" alt="">
+    </div>
+    <div class="section" id="software">
+        <h3 text="Logiciels">Logiciels</h3>
+        <table id="softwareTable">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Titre</th>
+                    <th>Nom de l'entreprise</th>
+                    <th>Taux d'utilisation</th>
+                    <th>Lien</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="assets/software/intellij.svg" alt="Intellij IDEA"></td>
+                    <td>Intellij IDEA Professional</td>
+                    <td>Jetbrains</td>
+                    <td>5</td>
+                    <td><a href="https://www.jetbrains.com/idea/">Lien</a></td>
+                </tr>
+                <tr>
+                    <td><img src="assets/software/webstrom.svg" alt="Webstorm"></td>
+                    <td>Webstorm</td>
+                    <td>Jetbrains</td>
+                    <td>3</td>
+                    <td><a href="https://www.jetbrains.com/webstorm/">Lien</a></td>
+                </tr>
+                <tr>
+                    <td><img src="assets/software/pycharm.svg" alt="Pycharm"></td>
+                    <td>Pycharm Professional</td>
+                    <td>Jetbrains</td>
+                    <td>4</td>
+                    <td><a href="https://www.jetbrains.com/pycharm/">Lien</a></td>
+                </tr>
+                <tr>
+                    <td><img src="assets/software/vsc.svg" alt="Visual Studio Code"></td>
+                    <td>Visual Studio Code</td>
+                    <td>Microsoft</td>
+                    <td>1</td>
+                    <td><a href="https://code.visualstudio.com/">Lien</a></td>
+                </tr>
+                <tr>
+                    <td><img src="assets/software/xcode.svg" alt="XCode"></td>
+                    <td>XCode</td>
+                    <td>Apple</td>
+                    <td>1</td>
+                    <td><a href="https://developer.apple.com/xcode/">Lien</a></td>
+                </tr>
+                <tr>
+                    <td><img src="assets/social/github.svg" alt="Github"></td>
+                    <td>Github</td>
+                    <td>Github</td>
+                    <td>4</td>
+                    <td><a href="https://www.github.com">Lien</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section" id="contact">
+        <h3 text="Contact">Contact</h3>
+        <div id="social-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis</p>
+            <div id="social-network">
+                <a href="https://www.github.com/TorisutanKholwes"><img src="assets/social/github.svg" alt="Github"></a>
+                <a href="https://twitter.com/torisutan_Khlws"><img src="assets/social/twitter.svg" alt="Twitter"></a>
+                <a href="https://www.instagram.com/torisutan_clw/"><img src="assets/social/instagram.svg" alt="Instagram"></a>
+                <img src="assets/social/discord.svg" alt="Discord">
+            </div>
+        </div>
+        <div id="contact-form">
+            <input placeholder="Nom*" type="text">
+            <input placeholder="Email*" type="text">
+            <input class="big-input" placeholder="Sujet*" type="text">
+            <button>Envoyer le message</button>
+        </div>
+    </div>
+    <footer>
+        <p>Design by Xbition-art & Coding by Tristan © 2022 - Réalisé avec 💛 et passion.</p>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 </html>

@@ -1,11 +1,14 @@
+// Scss Import
+@use "sass:math";
+
 // Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 // Primary Color
 $midnight: #313C58;
 $rhythm: #727D9A;
 $lavender_gray: #C2C6D0;
-$bright_gray:#C2C6D0;
+$bright_gray:#EEEFF2;
 $blue: #7784EE;
 $orange: #EC9657;
 $macaroni_and_cheese: #FEBD8E;
@@ -18,10 +21,214 @@ $artichoke: #94A577;
 $sage: #B3C592;
 $tea_green: #CDE0AA;
 
-h1 {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  color: $midnight;
+// Functions
+@function pxToVw($px) {
+  $vw: (math.div($px, 1920)) * 100vw;
+  @return $vw;
 }
+
+// Global Styles
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  background-color: #F9FAFE;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: pxToVw(48);
+  color: $midnight;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: pxToVw(24);
+  color: $rhythm;
+  text-align: center;
+  margin: 0;
+  padding: 13.021px 0;
+}
+
+h3 {
+  position: relative;
+  font-size: pxToVw(96);
+  font-weight: 700;
+  color: $bright_gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  &::after {
+    content: attr(text);
+    position: absolute;
+    top: 56.94%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: pxToVw(32);
+    font-weight: 500;
+    color: $midnight;
+  }
+}
+
+h4 {
+  font-weight: 600;
+  font-size: pxToVw(20);
+  text-align: center;
+  color: $rhythm;
+}
+
+ p {
+   font-weight: 400;
+   font-size: pxToVw(16);
+   color: $rhythm;
+ }
+
+ a {
+   font-weight: 600;
+   font-size: pxToVw(16);
+   color: $orange;
+   text-decoration: none;
+
+   &:hover {
+     color: $macaroni_and_cheese;
+   }
+ }
+
+ li {
+   color: $rhythm;
+   font-weight: 500;
+   font-size: 20px;
+ }
+
+// Header styles
+.devtype {
+  color: $blue;
+}
+
+#sun {
+  padding-left: 20px;
+  padding-top: 20px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background-color: $banana_mania;
+    border-radius: 50%;
+    z-index: -1;
+    overflow: hidden;
+  }
+}
+
+#tab-nav {
+  display: flex;
+  //align-items: center;
+  justify-content: flex-end;
+  li {
+    margin-right: 40px;
+    display: inline-flex;
+    position: relative;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    &:not(.no-select) {
+      height: 30px;
+      &:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: $orange;
+        border-radius: 2px;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        opacity: 1;
+        transition: transform 0.8s ease-in-out;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+      &:hover {
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+.languages {
+  font-weight: 500;
+  font-size: 20px;
+  color: $lavender_gray;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  &.active {
+    color: $rhythm;
+    margin-top: 10px;
+  }
+}
+
+#language {
+  background: white;
+  border-radius: 8px;
+  width: 81px;
+  margin-top: -10px;
+}
+
+#current-language {
+  display: flex;
+  vertical-align: middle;
+}
+
+#chevron {
+  margin-left: 10px;
+}
+
+#show-language {
+  display: none;
+  &:not(:checked) ~ #other-language {
+    //display: none;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#other-language {
+  max-height: 81px;
+  opacity: 1;
+  transition: max-height 1s ease, opacity .2s ease-in-out .8s;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 37px;
+    left: 12px;
+    width: 54px;
+    height: 2px;
+    background: $lavender_gray;
+  }
+}
+
+#name {
+  text-align: center;
+}
+
+#logo {
+  width: auto;
+  height: 5.36vw;
+}
+
+#profile {
+  background-color: white;
+}
+
+.section {
+  padding-top: 100px;
+}
+
+
