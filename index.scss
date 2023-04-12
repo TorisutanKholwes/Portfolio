@@ -8,7 +8,7 @@
 $midnight: #313C58;
 $rhythm: #727D9A;
 $lavender_gray: #C2C6D0;
-$bright_gray:#EEEFF2;
+$bright_gray: #EBECF2;
 $blue: #7784EE;
 $orange: #EC9657;
 $macaroni_and_cheese: #FEBD8E;
@@ -78,6 +78,7 @@ h4 {
   font-size: pxToVw(20);
   text-align: center;
   color: $rhythm;
+  margin: 0;
 }
 
  p {
@@ -100,7 +101,7 @@ h4 {
  li {
    color: $rhythm;
    font-weight: 500;
-   font-size: 20px;
+   font-size: pxToVw(20);
  }
 
 // Header styles
@@ -109,19 +110,23 @@ h4 {
 }
 
 #sun {
-  padding-left: 20px;
-  padding-top: 20px;
+  padding-left: pxToVw(20);
+  padding-top: pxToVw(20);
   &::before {
     content: '';
     position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 200px;
-    height: 200px;
+    top: pxToVw(-100);
+    left: pxToVw(-100);
+    width: pxToVw(200);
+    height: pxToVw(200);
     background-color: $banana_mania;
     border-radius: 50%;
     z-index: -1;
     overflow: hidden;
+  }
+  & img {
+    width: pxToVw(42);
+    height: pxToVw(42);
   }
 }
 
@@ -130,13 +135,13 @@ h4 {
   //align-items: center;
   justify-content: flex-end;
   li {
-    margin-right: 40px;
+    margin-right: pxToVw(40);
     display: inline-flex;
     position: relative;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: pxToVw(4);
+    margin-bottom: pxToVw(4);
     &:not(.no-select) {
-      height: 30px;
+      height: pxToVw(30);
       &:after {
         content: '';
         width: 100%;
@@ -144,7 +149,7 @@ h4 {
         background-color: $orange;
         border-radius: 2px;
         position: absolute;
-        bottom: -2px;
+        bottom: pxToVw(-2);
         left: 0;
         opacity: 1;
         transition: transform 0.8s ease-in-out;
@@ -162,22 +167,22 @@ h4 {
 
 .languages {
   font-weight: 500;
-  font-size: 20px;
+  font-size: pxToVw(20);
   color: $lavender_gray;
   margin-top: 0;
-  margin-bottom: 10px;
-  margin-left: 15px;
+  margin-bottom: pxToVw(10);
+  margin-left: pxToVw(15);
   &.active {
     color: $rhythm;
-    margin-top: 10px;
+    margin-top: pxToVw(10);
   }
 }
 
 #language {
   background: white;
   border-radius: 8px;
-  width: 81px;
-  margin-top: -10px;
+  width: pxToVw(81);
+  margin-top: pxToVw(-10);
 }
 
 #current-language {
@@ -186,7 +191,9 @@ h4 {
 }
 
 #chevron {
-  margin-left: 10px;
+  margin-left: pxToVw(10);
+  width: pxToVw(24);
+  height: auto;
 }
 
 #show-language {
@@ -200,16 +207,16 @@ h4 {
 }
 
 #other-language {
-  max-height: 81px;
+  max-height: pxToVw(81);
   opacity: 1;
   transition: max-height 1s ease, opacity .2s ease-in-out .8s;
   &:after {
     content: '';
     position: absolute;
-    top: 37px;
-    left: 12px;
-    width: 54px;
-    height: 2px;
+    top: pxToVw(34);
+    left: pxToVw(12);
+    width: pxToVw(54);
+    height: pxToVw(2);
     background: $lavender_gray;
   }
 }
@@ -220,15 +227,108 @@ h4 {
 
 #logo {
   width: auto;
-  height: 5.36vw;
+  height: pxToVw(100);
 }
 
 #profile {
   background-color: white;
 }
 
+// Profile styles
+
 .section {
-  padding-top: 100px;
+  padding-top: pxToVw(100);
 }
 
+#profile-picture {
+  width: pxToVw(260);
+  height: auto;
+  border-radius: 50%;
+  margin-right: pxToVw(40)
+}
 
+#description {
+  width: pxToVw(860);
+}
+
+#profiledesc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: pxToVw(25);
+}
+
+.code {
+  background: $bright_gray;
+  border-radius: pxToVw(10);
+  width: pxToVw(178);
+  text-align: center;
+
+  & > img {
+    padding-top: pxToVw(10);
+    width: pxToVw(42);
+    height: auto;
+  }
+  & > h4 {
+    padding-bottom: pxToVw(10);
+  }
+
+  & ~ p {
+    text-align: center;
+    width: pxToVw(320);
+  }
+}
+
+.time .code {
+  margin-left: 22%;
+}
+
+#all-time {
+  display: flex;
+  & div {
+    margin: 0 pxToVw(75)
+  }
+}
+
+// Skills styles
+.w40 {
+  width: 40%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.w60 {
+    width: 60%;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w80 {
+  width: 80%;
+}
+
+.w90 {
+  width: 90%;
+}
+
+.progress-skill {
+  background-color: $bright_gray;
+  border-radius: pxToVw(15);
+  width: pxToVw(498);
+  height: pxToVw(10);
+}
+
+.skill-bar {
+  background-color: $blue;
+  height: pxToVw(10);
+  text-align: right;
+  & p {
+    color: white;
+    padding-right: pxToVw(10);
+  }
+  border-radius: pxToVw(15);
+}
