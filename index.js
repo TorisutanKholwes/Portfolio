@@ -16,6 +16,11 @@ const langList = ["FR", "EN", "ES"]
 const langSelect = document.getElementsByClassName("languages")
 let langChange = document.getElementsByClassName("can-choose")
 
+const alltime = document.getElementById("all-time-code")
+const dailytime = document.getElementById("daily-code-time")
+
+const send_button = document.getElementById("send-message")
+
 import fr from "./assets/langs/fr.json"
 import en from "./assets/langs/en.json"
 import es from "./assets/langs/es.json"
@@ -30,6 +35,12 @@ const scrollType = {
 
 function pxToVh(px) {
     return (px / 1920) * 100;
+}
+
+function timeToString(secs) {
+    let hours = Math.floor(secs / 3600);
+    let minutes = Math.floor((secs % 3600) / 60);
+    return `${hours}h ${minutes}m`;
 }
 
 function vhToPx(vh, width) {
@@ -80,7 +91,8 @@ Object.keys(scrollType).forEach(key => {
 
 window.addEventListener("DOMContentLoaded", () => {
     let theme = localStorage.getItem("data-theme")
-    let lang = localStorage.getItem("lang").toUpperCase()
+    let lang = localStorage.getItem("lang")
+    if (lang) lang.toUpperCase()
     if (theme) {
         document.documentElement.setAttribute("data-theme", theme)
     }
@@ -105,6 +117,17 @@ window.addEventListener("DOMContentLoaded", () => {
             langCopy = langCopy.filter(item => item !== langCopy[0])
         }
     }
+    $.ajax({
+        type: 'GET',
+        url: 'https://wakatime.com/share/@Torisutan/9bbba351-99bb-4558-a775-7164226010ae.json',
+        dataType: 'jsonp',
+        success: function(response) {
+            let totalTime = response.data["grand_total"]["total_seconds_including_other_language"]
+            let averageTime = response.data["grand_total"]["daily_average_including_other_language"]
+            alltime.innerText = timeToString(Math.floor(totalTime))
+            dailytime.innerText = timeToString(Math.floor(averageTime))
+        },
+    });
 })
 
 sun.addEventListener("click", () => {
@@ -139,3 +162,38 @@ function changeLang(lang) {
         }
     });
 }
+
+send_button.addEventListener("click", () => {
+    let name = document.getElementById("form-name").value
+    if (name === "") {
+        document.getElementById("name-error").classList.add("show")
+        document.getElementById("form-name").classList.add("error")
+    } else if (name !== "" && document.getElementById("name-error").classList.contains("show")) {
+        document.getElementById("name-error").classList.remove("show")
+        document.getElementById("form-name").classList.remove("error")
+    }
+    let email = document.getElementById("form-email").value
+    if (email === "") {
+        document.getElementById("email-error").classList.add("show")
+        document.getElementById("form-email").classList.add("error")
+    } else if (email !== "" && document.getElementById("email-error").classList.contains("show")) {
+        document.getElementById("email-error").classList.remove("show")
+        document.getElementById("form-email").classList.remove("error")
+    }
+    let message = document.getElementById("form-subject").value
+    if (message === "") {
+        document.getElementById("subject-error").classList.add("show")
+        document.getElementById("form-subject").classList.add("error")
+    } else if (message !== "" && document.getElementById("subject-error").classList.contains("show")) {
+        document.getElementById("subject-error").classList.remove("show")
+        document.getElementById("form-subject").classList.remove("error")
+    }
+    if (name === "" || email === "" || message === "") return
+    Email.send({
+        SecureToken: "1d134f5b-cb02-4ca7-88d5-4186a58efed6",
+        To: "tristanclowez@torisutan.tech",
+        From: email,
+        Subject: "Message du portfolio de : " + name,
+        Body: message
+    })
+})

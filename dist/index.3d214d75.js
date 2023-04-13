@@ -582,6 +582,9 @@ const langList = [
 ];
 const langSelect = document.getElementsByClassName("languages");
 let langChange = document.getElementsByClassName("can-choose");
+const alltime = document.getElementById("all-time-code");
+const dailytime = document.getElementById("daily-code-time");
+const send_button = document.getElementById("send-message");
 const scrollType = {
     "profile": 0,
     "skills": 1100,
@@ -591,6 +594,11 @@ const scrollType = {
 };
 function pxToVh(px) {
     return px / 1920 * 100;
+}
+function timeToString(secs) {
+    let hours = Math.floor(secs / 3600);
+    let minutes = Math.floor(secs % 3600 / 60);
+    return `${hours}h ${minutes}m`;
 }
 function vhToPx(vh, width) {
     return vh / 100 * width;
@@ -638,7 +646,8 @@ Object.keys(scrollType).forEach((key)=>{
 });
 window.addEventListener("DOMContentLoaded", ()=>{
     let theme = localStorage.getItem("data-theme");
-    let lang = localStorage.getItem("lang").toUpperCase();
+    let lang = localStorage.getItem("lang");
+    if (lang) lang.toUpperCase();
     if (theme) document.documentElement.setAttribute("data-theme", theme);
     if (lang) document.documentElement.setAttribute("lang", lang.toLowerCase());
     else {
@@ -660,6 +669,17 @@ window.addEventListener("DOMContentLoaded", ()=>{
         select.innerHTML = langCopy[0];
         langCopy = langCopy.filter((item)=>item !== langCopy[0]);
     }
+    $.ajax({
+        type: "GET",
+        url: "https://wakatime.com/share/@Torisutan/9bbba351-99bb-4558-a775-7164226010ae.json",
+        dataType: "jsonp",
+        success: function(response) {
+            let totalTime = response.data["grand_total"]["total_seconds_including_other_language"];
+            let averageTime = response.data["grand_total"]["daily_average_including_other_language"];
+            alltime.innerText = timeToString(Math.floor(totalTime));
+            dailytime.innerText = timeToString(Math.floor(averageTime));
+        }
+    });
 });
 sun.addEventListener("click", ()=>{
     let theme = document.documentElement.getAttribute("data-theme");
@@ -686,8 +706,42 @@ function changeLang(lang) {
         }
     });
 }
+send_button.addEventListener("click", ()=>{
+    let name = document.getElementById("form-name").value;
+    if (name === "") {
+        document.getElementById("name-error").classList.add("show");
+        document.getElementById("form-name").classList.add("error");
+    } else if (name !== "" && document.getElementById("name-error").classList.contains("show")) {
+        document.getElementById("name-error").classList.remove("show");
+        document.getElementById("form-name").classList.remove("error");
+    }
+    let email = document.getElementById("form-email").value;
+    if (email === "") {
+        document.getElementById("email-error").classList.add("show");
+        document.getElementById("form-email").classList.add("error");
+    } else if (email !== "" && document.getElementById("email-error").classList.contains("show")) {
+        document.getElementById("email-error").classList.remove("show");
+        document.getElementById("form-email").classList.remove("error");
+    }
+    let message = document.getElementById("form-subject").value;
+    if (message === "") {
+        document.getElementById("subject-error").classList.add("show");
+        document.getElementById("form-subject").classList.add("error");
+    } else if (message !== "" && document.getElementById("subject-error").classList.contains("show")) {
+        document.getElementById("subject-error").classList.remove("show");
+        document.getElementById("form-subject").classList.remove("error");
+    }
+    if (name === "" || email === "" || message === "") return;
+    Email.send({
+        SecureToken: "1d134f5b-cb02-4ca7-88d5-4186a58efed6",
+        To: "tristanclowez@torisutan.tech",
+        From: email,
+        Subject: "Message du portfolio de : " + name,
+        Body: message
+    });
+});
 
-},{"ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ","./assets/langs/fr.json":"k2KFO","@parcel/transformer-js/src/esmodule-helpers.js":"5KLut","./assets/langs/en.json":"cFDQy","./assets/langs/es.json":"8q2U5"}],"4RlJK":[function(require,module,exports) {
+},{"ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ","./assets/langs/fr.json":"k2KFO","./assets/langs/en.json":"cFDQy","./assets/langs/es.json":"8q2U5","@parcel/transformer-js/src/esmodule-helpers.js":"5KLut"}],"4RlJK":[function(require,module,exports) {
 module.exports = require("dc7bd749ba8fa81b").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
 
 },{"dc7bd749ba8fa81b":"he98u"}],"he98u":[function(require,module,exports) {
@@ -734,7 +788,13 @@ module.exports = require("33d76bafa93b482f").getBundleURL("UckoE") + "arrowRight
 module.exports = require("3cdef18743ffd8db").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
 
 },{"3cdef18743ffd8db":"he98u"}],"k2KFO":[function(require,module,exports) {
-module.exports = JSON.parse('{"profile":"Profil","skills":"Comp\xe9tences","projects":"Projets","software":"Logiciels","contact":"Contact","title":"Salut, je suis Tristan !","subtitle":"Un d\xe9veloppeur <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> et <span class=\\"devtype\\">Web</span>","profileDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","totalCodeTime":"Nombre d\'heures de code depuis F\xe9vrier 2021 :","averageCodeTime":"Nombre d\'heures de code par jour en moyenne depuis F\xe9vrier 2021 :","portfolioDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","portfolioLanguages":"Langages utilis\xe9s :","seeProject":"Voir le projet","javawarsDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","javawarsLanguages":"Langages utilis\xe9s :","softwareLogo":"Logo","softwareName":"Titre","softwareCompany":"Entreprise","softwareTimeUse":"Taux d\'utilisation","softwareLink":"Lien","socialText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis","inputNamePlaceholder":"Nom*","inputNameError":"*Le nom est obligatoire","inputEmailPlaceholder":"Email*","inputEmailError":"*L\'email est obligatoire","inputSubjectPlaceholder":"Sujet*","inputSubjectError":"*Le sujet est obligatoire","inputSendMessage":"Envoyer le message"}');
+module.exports = JSON.parse('{"profile":"Profil","skills":"Comp\xe9tences","projects":"Projets","software":"Logiciels","contact":"Contact","title":"Salut, je suis Tristan !","subtitle":"Un d\xe9veloppeur <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> et <span class=\\"devtype\\">Web</span>","profileDescription":"Je suis Tristan Clowez, un d\xe9veloppeur informatique de 17 ans, passionn\xe9 et avec 4 ans d\'exp\xe9rience. Mon expertise inclut les langages Java, Python et les technologies front-end (HTML, CSS, JavaScript). J\'utilise aussi NodeJS pour le back-end. J\'\xe9tudie en terminale avec comme sp\xe9cialisation en NSI et en math\xe9matiques, et mon objectif est d\'int\xe9grer un cycle ing\xe9nieur apr\xe8s mon bac. Venez d\xe9couvrir mes projets et comp\xe9tences en d\xe9veloppement !","totalCodeTime":"Nombre d\'heures de code depuis F\xe9vrier 2021 :","averageCodeTime":"Nombre d\'heures de code par jour en moyenne depuis F\xe9vrier 2021 :","portfolioDescription":"Le site sur lequel vous vous trouvez ! Enti\xe8rement developp\xe9 en vanilla JS et SCSS, il est responsive et est disponible dans 3 langues (Fran\xe7ais, Anglais et Espagnol). Il est une refonte de mon premier site, qui \xe9tait en React avec un nouveau design. Il est h\xe9berg\xe9 sur Vercel.","portfolioLanguages":"Langage utilis\xe9 : <strong>HTML</strong>, <strong>SCSS</strong> et <strong>JS</strong>","seeProject":"Voir le projet","javawarsDescription":"Un projet r\xe9alis\xe9 en Java permettant une utilis\xe9 simplifi\xe9 de l\'API de Guild Wars 2. Guild Wars 2 est un MMORPG sortie en 2012 et une API est disponible pour les d\xe9veloppeurs. Ce projet contient de nombreuses classes permenttant une meilleure utilisation de l\'API avec des commentaires (Projet en cours de d\xe9veloppement) ","javawarsLanguages":"Langages utilis\xe9s : <strong>Java</strong>","softwareLogo":"Logo","softwareName":"Titre","softwareCompany":"Entreprise","softwareTimeUse":"Taux d\'utilisation","softwareLink":"Lien","socialText":"Passionn\xe9 de d\xe9veloppement, je mets mon expertise \xe0 votre disposition pour cr\xe9er des solutions digitales innovantes et sur mesure. Mon engagement envers la qualit\xe9, la cr\xe9ativit\xe9 et l\'excellence vous garantit des r\xe9sultats qui r\xe9pondent \xe0 vos besoins et vous aident \xe0 atteindre vos objectifs.","inputNamePlaceholder":"Nom*","inputNameError":"*Le nom est obligatoire","inputEmailPlaceholder":"Email*","inputEmailError":"*L\'email est obligatoire","inputSubjectPlaceholder":"Sujet*","inputSubjectError":"*Le sujet est obligatoire","inputSendMessage":"Envoyer le message"}');
+
+},{}],"cFDQy":[function(require,module,exports) {
+module.exports = JSON.parse('{"profile":"Profile","skills":"Skills","projects":"Projects","software":"Software","contact":"Contact","title":"Hi, I\'m Tristan!","subtitle":"A <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> and <span class=\\"devtype\\">Web</span> developer","profileDescription":"I am Tristan Clowez, a 17-year-old computer developer, passionate and with 4 years of experience. My expertise includes the Java and Python programming languages, as well as front-end technologies (HTML, CSS, JavaScript). I also use NodeJS for back-end development. I am currently in my final year of high school with a specialization in Computer Science and Mathematics, and my goal is to pursue an engineering degree after graduating. Come discover my projects and development skills!","totalCodeTime":"Total hours of code since February 2021:","averageCodeTime":"Average hours of code per day since February 2021:","portfolioDescription":"The website you are currently on! It has been fully developed using vanilla JS and SCSS, and is responsive and available in three languages (French, English, and Spanish). It is a redesign of my first website, which was built with React and has a new design. It is hosted on Vercel.","portfolioLanguages":"Languages used: <strong>HTML</strong>, <strong>SCSS</strong> and <strong>JS</strong>","seeProject":"See project","javawarsDescription":"A Java project that simplifies the use of the Guild Wars 2 API. Guild Wars 2 is an MMORPG released in 2012, and an API is available for developers. This project contains numerous classes for a better use of the API with comments (Work in progress).","javawarsLanguages":"Languages used: <strong>Java</strong>","softwareLogo":"Logo","softwareName":"Title","softwareCompany":"Company","softwareTimeUse":"Usage rate","softwareLink":"Link","socialText":"Passionate about development, I offer my expertise to create innovative and customized digital solutions for you. My commitment to quality, creativity, and excellence ensures results that meet your needs and help you achieve your goals.","inputNamePlaceholder":"Name*","inputNameError":"*Name is required","inputEmailPlaceholder":"Email*","inputEmailError":"*Email is required","inputSubjectPlaceholder":"Subject","inputSubjectError":"*Subject is required","inputSendMessage":"Send message"}');
+
+},{}],"8q2U5":[function(require,module,exports) {
+module.exports = JSON.parse('{"profile":"Perfil","skills":"Habilidades","projects":"Proyectos","software":"Software","contact":"Contacto","title":"\xa1Hola, soy Tristan!","subtitle":"Un desarrollador <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> y <span class=\\"devtype\\">Web</span>","profileDescription":"Soy Tristan Clowez, un desarrollador inform\xe1tico de 17 a\xf1os, apasionado y con 4 a\xf1os de experiencia. Mi experiencia incluye los lenguajes de programaci\xf3n Java y Python, as\xed como tecnolog\xedas front-end (HTML, CSS, JavaScript). Tambi\xe9n uso NodeJS para el desarrollo de back-end. Actualmente estoy en mi \xfaltimo a\xf1o de escuela secundaria con una especializaci\xf3n en Ciencias de la Computaci\xf3n y Matem\xe1ticas, y mi objetivo es obtener un t\xedtulo de ingenier\xeda despu\xe9s de graduarme. \xa1Ven a descubrir mis proyectos y habilidades en desarrollo!","totalCodeTime":"Horas totales de c\xf3digo desde febrero de 2021:","averageCodeTime":"Horas promedio de c\xf3digo por d\xeda desde febrero de 2021:","portfolioDescription":"\xa1El sitio web en el que te encuentras actualmente! Ha sido completamente desarrollado utilizando vanilla JS y SCSS, y es responsive y est\xe1 disponible en tres idiomas (franc\xe9s, ingl\xe9s y espa\xf1ol). Es una renovaci\xf3n de mi primer sitio web, que fue construido con React y tiene un nuevo dise\xf1o. Est\xe1 alojado en Vercel.","portfolioLanguages":"Idiomas utilizados: <strong>HTML</strong>, <strong>SCSS</strong> y <strong>JS</strong>","seeProject":"Ver proyecto","javawarsDescription":"Un proyecto realizado en Java que simplifica el uso de la API de Guild Wars 2. Guild Wars 2 es un MMORPG lanzado en 2012, y una API est\xe1 disponible para los desarrolladores. Este proyecto contiene numerosas clases para un mejor uso de la API con comentarios (Trabajo en progreso).","javawarsLanguages":"Idiomas utilizados: <strong>Java</strong>","softwareLogo":"Logo","softwareName":"T\xedtulo","softwareCompany":"Empresa","softwareTimeUse":"Tasa de uso","softwareLink":"Enlace","socialText":"Apasionado por el desarrollo, pongo mi experiencia a su disposici\xf3n para crear soluciones digitales innovadoras y personalizadas. Mi compromiso con la calidad, la creatividad y la excelencia garantiza resultados que satisfacen sus necesidades y lo ayudan a alcanzar sus objetivos.","inputNamePlaceholder":"Nombre*","inputNameError":"*El nombre es obligatorio","inputEmailPlaceholder":"Email*","inputEmailError":"*El correo electr\xf3nico es obligatorio","inputSubjectPlaceholder":"Asunto*","inputSubjectError":"*El asunto es obligatorio","inputSendMessage":"Enviar mensaje"}');
 
 },{}],"5KLut":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -765,12 +825,6 @@ exports.export = function(dest, destName, get) {
         get: get
     });
 };
-
-},{}],"cFDQy":[function(require,module,exports) {
-module.exports = JSON.parse('{"profile":"Profile","skills":"Skills","projects":"Projects","software":"Software","contact":"Contact","title":"Hi, I\'m Tristan!","subtitle":"A <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> and <span class=\\"devtype\\">Web</span> developer","profileDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","totalCodeTime":"Total hours of code since February 2021:","averageCodeTime":"Average hours of code per day since February 2021:","portfolioDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","portfolioLanguages":"Languages used:","seeProject":"See project","javawarsDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","javawarsLanguages":"Languages used:","softwareLogo":"Logo","softwareName":"Title","softwareCompany":"Company","softwareTimeUse":"Usage rate","softwareLink":"Link","socialText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis","inputNamePlaceholder":"Name*","inputNameError":"*Name is required","inputEmailPlaceholder":"Email*","inputEmailError":"*Email is required","inputSubjectPlaceholder":"Subject","inputSubjectError":"*Subject is required","inputSendMessage":"Send message"}');
-
-},{}],"8q2U5":[function(require,module,exports) {
-module.exports = JSON.parse('{"profile":"Perfil","skills":"Habilidades","projects":"Proyectos","software":"Software","contact":"Contacto","title":"\xa1Hola, soy Tristan!","subtitle":"Un desarrollador <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> y <span class=\\"devtype\\">Web</span>","profileDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","totalCodeTime":"Horas totales de c\xf3digo desde febrero de 2021:","averageCodeTime":"Horas promedio de c\xf3digo por d\xeda desde febrero de 2021:","portfolioDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","portfolioLanguages":"Idiomas utilizados:","seeProject":"Ver proyecto","javawarsDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","javawarsLanguages":"Idiomas utilizados:","softwareLogo":"Logo","softwareName":"T\xedtulo","softwareCompany":"Empresa","softwareTimeUse":"Tasa de uso","softwareLink":"Enlace","socialText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis","inputNamePlaceholder":"Nombre*","inputNameError":"*El nombre es obligatorio","inputEmailPlaceholder":"Email*","inputEmailError":"*El correo electr\xf3nico es obligatorio","inputSubjectPlaceholder":"Asunto*","inputSubjectError":"*El asunto es obligatorio","inputSendMessage":"Enviar mensaje"}');
 
 },{}]},["77IDL","bB7Pu"], "bB7Pu", "parcelRequire94c2")
 

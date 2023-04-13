@@ -136,8 +136,12 @@ input, textarea {
   background: var(--white);
   width: 29.1667vw;
   height: 3.125vw;
+  color: var(--rhythm);
   border-radius: 10px;
   padding: .78125vw 1.04167vw;
+  font-family: Poppins, sans-serif;
+  font-size: .833333vw;
+  font-weight: 400;
 }
 
 input::placeholder, textarea::placeholder {
@@ -471,7 +475,7 @@ header {
   width: 29.1667vw;
   height: 20.0521vw;
   border-radius: .78125vw;
-  padding-right: 2.08333vw;
+  margin-right: 2.08333vw;
 }
 
 .project {
@@ -574,8 +578,16 @@ header {
   width: 29.1667vw;
 }
 
+#social-description {
+  padding-right: 2.08333vw;
+}
+
 .form-input {
   padding-bottom: 1.5625vw;
+}
+
+.form-input input.error, .form-input textarea.error {
+  border: 1px solid var(--orange);
 }
 
 .form-input p {
@@ -584,6 +596,7 @@ header {
 }
 
 .form-input p.show {
+  color: var(--orange);
   display: block;
 }
 
@@ -622,7 +635,7 @@ header {
 .ellipse {
   width: 32.9688vw;
   height: 32.9688vw;
-  filter: blur(9.11458vw);
+  filter: blur(10vw);
   pointer-events: none;
   border-radius: 50%;
   position: absolute;
@@ -687,7 +700,7 @@ header {
 
 #e4 {
   width: 27.0833vw;
-  height: 56.4063vw;
+  height: 45.3125vw;
   float: right;
   top: -19.375vw;
   left: 71.7708vw;

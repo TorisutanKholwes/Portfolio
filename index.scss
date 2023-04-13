@@ -151,6 +151,10 @@ h4 {
    height: pxToVw(60);
    border-radius: 10px;
    padding: pxToVw(15) pxToVw(20);
+   color: var(--rhythm);
+   font-family: 'Poppins', sans-serif;
+   font-weight: 400;
+   font-size: pxToVw(16);
    &::placeholder {
      font-family: 'Poppins', sans-serif;
      font-weight: 400;
@@ -475,7 +479,7 @@ header {
   width: pxToVw(560);
   height: pxToVw(385);
   border-radius: pxToVw(15);
-  padding-right: pxToVw(40);
+  margin-right: pxToVw(40);
 }
 
 .project {
@@ -577,16 +581,23 @@ header {
   width: pxToVw(560);
 }
 
+#social-description {
+  padding-right: pxToVw(40);
+}
 
 .form-input {
-
   padding-bottom: pxToVw(30);
+
+  & input.error {
+    border: 1px solid var(--orange);
+  }
 
   & p {
     display: none;
     margin: pxToVw(10) 0 0 0;
     &.show {
       display: block;
+      color: var(--orange)
     }
   }
 }
@@ -629,7 +640,7 @@ header {
   width: pxToVw(633);
   height: pxToVw(633);
   border-radius: 50%;
-  filter: blur(pxToVw(175));
+  filter: blur(10vw);
   position: absolute;
   pointer-events: none;
 }
@@ -689,7 +700,7 @@ header {
 
 #e4 {
   width: pxToVw(520);
-  height: pxToVw(1083);
+  height: pxToVw(870);
   top: pxToVw(-372);
   left: pxToVw(1378);
   overflow: hidden;

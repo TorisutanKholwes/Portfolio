@@ -56,14 +56,14 @@
                     <div class="time" id="total-code">
                         <div class="code">
                             <img src="/clock.2c4f7a4f.svg" alt="Horloge">
-                            <h4>487h 44m</h4>
+                            <h4 id="all-time-code">487h 44m</h4>
                         </div>
                         <p>totalCodeTime</p>
                     </div>
                     <div class="time" id="daily-code">
                         <div class="code">
                             <img src="/calendarClock.e80b9fb0.svg" alt="Calendrier">
-                            <h4>2h 10m</h4>
+                            <h4 id="daily-code-time">2h 10m</h4>
                         </div>
                         <p>averageCodeTime</p>
                     </div>
@@ -166,18 +166,18 @@
             <div class="carrousel-wrapper">
                 <div id="project-carrousel">
                     <div class="project current-project" id="portfolio">
-                        <img class="project-img" src="https://media.discordapp.net/attachments/896690238418743327/1095716106070675567/image.png?width=1021&height=702" alt="">
+                        <img class="project-img" src="/portfolio.0bc42e63.png" alt="">
                         <div class="project-desc">
                             <p class="project-description">portfolioDescription</p>
-                            <p class="project-language">Langage utilisé : <strong>React JS</strong> et <strong>SCSS</strong></p>
+                            <p class="project-language">portfolioLanguages</p>
                             <button redirect="https://github.com/TorisutanKholwes/Portfolio" class="project-button">seeProject</button>
                         </div>
                     </div>
                     <div class="project" id="javawars">
-                        <img class="project-img" src="https://media.discordapp.net/attachments/896690238418743327/1095716106070675567/image.png?width=1021&height=702" alt="">
+                        <img class="project-img" src="/javawars.97d63296.jpg" alt="">
                         <div class="project-desc">
                             <p class="project-description">javawarsDescription</p>
-                            <p class="project-language">Langage utilisé : <strong>Java</strong></p>
+                            <p class="project-language">javawarsLanguages</p>
                             <button redirect="https://github.com/TorisutanKholwes/JavaWars2" class="project-button">seeProject</button>
                         </div>
                     </div>
@@ -309,25 +309,24 @@
             </div>
             <div id="contact-form">
                 <div class="form-input">
-                    <input placeholder="Nom*" type="text">
-                    <p>inputNameError</p>
+                    <input id="form-name" placeholder="Nom*" type="text">
+                    <p id="name-error">inputNameError</p>
                 </div>
                 <div class="form-input">
-                    <input placeholder="Email*" type="text">
-                    <p>inputEmailError</p>
+                    <input id="form-email" placeholder="Email*" type="text">
+                    <p id="email-error">inputEmailError</p>
                 </div>
                 <div class="form-input">
-                    <textarea placeholder="Sujet*"></textarea>
-                    <p>inputSubjectError</p>
+                    <textarea id="form-subject" placeholder="Sujet*"></textarea>
+                    <p id="subject-error">inputSubjectError</p>
                 </div>
-                <button id="send-message">inputSendMessage</button>
+                <button id="send-message" type="submit" name="send">inputSendMessage</button>
             </div>
         </div>
     </div>
     <footer>
-        <p id="footer">Design by Xbition-art & Coding by Tristan © 2022 - Réalisé avec 💛 et passion.</p>
+        <p id="footer">Design by Xbition-art & Coding by Tristan © 2023 - Réalisé avec 💛 et passion.</p>
     </footer>
-    <script src="/index.3d214d75.js" defer=""></script>
     <div id="background_element">
         <div id="degrade"></div>
         <div class="ellipse blue" id="e1"></div>
@@ -335,5 +334,8 @@
         <div class="ellipse green" id="e3"></div>
         <div class="ellipse blue" id="e4"></div>
     </div>
+    <script src="/index.3d214d75.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
