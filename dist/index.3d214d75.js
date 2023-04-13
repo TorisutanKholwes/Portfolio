@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"2V1yg":[function(require,module,exports) {
+})({"77IDL":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -557,21 +557,32 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"bB7Pu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _frJson = require("./assets/langs/fr.json");
+var _frJsonDefault = parcelHelpers.interopDefault(_frJson);
 const carrousel_container = document.getElementById("project-carrousel");
 const slide = document.querySelector(".project");
 const numSlides = document.querySelectorAll(".project").length;
 const nextBtn = document.getElementById("arrow-right");
 const prevBtn = document.getElementById("arrow-left");
 const redirectButton = document.querySelectorAll(".project-button");
-const nextActif = new URL(require("91f6845bf1b9f76f"));
-const prevActif = new URL(require("1fdd1c198e301d10"));
-const nextHover = new URL(require("9cef54bafad3db9d"));
-const prevHover = new URL(require("66a39b11da4766a5"));
+const nextActif = new URL(require("ad33df646c140d1c"));
+const prevActif = new URL(require("415ae6cb19e139dc"));
+const nextHover = new URL(require("2874858296dbb2ae"));
+const prevHover = new URL(require("1e10f3d0bda6ee26"));
+const sun = document.getElementById("sun");
+const langList = [
+    "FR",
+    "EN",
+    "ES"
+];
+const langSelect = document.getElementsByClassName("languages");
+let langChange = document.getElementsByClassName("can-choose");
 const scrollType = {
     "profile": 0,
     "skills": 1100,
-    "projects": 1800,
-    "software": 2500,
+    "projects": 1750,
+    "software": 2400,
     "contact": 5000
 };
 function pxToVh(px) {
@@ -606,7 +617,6 @@ prevBtn.addEventListener("click", ()=>{
 });
 redirectButton.forEach((button)=>{
     button.addEventListener("click", ()=>{
-        console.log("a");
         let url = button.getAttribute("redirect");
         window.open(url, "_blank");
     });
@@ -622,11 +632,57 @@ Object.keys(scrollType).forEach((key)=>{
         });
     });
 });
+window.addEventListener("DOMContentLoaded", ()=>{
+    let theme = localStorage.getItem("data-theme");
+    let lang = localStorage.getItem("lang").toUpperCase();
+    if (theme) document.documentElement.setAttribute("data-theme", theme);
+    if (lang) document.documentElement.setAttribute("lang", lang.toLowerCase());
+    else {
+        lang = "FR";
+        localStorage.setItem("lang", lang);
+    }
+    let langCopy = [
+        ...langList
+    ];
+    for(let i = 0; i < langSelect.length; i++)if (langCopy.length === langList.length) {
+        let select = langSelect[i];
+        if (select.classList.contains("active")) {
+            select.innerHTML = lang;
+            langCopy = langCopy.filter((item)=>item !== lang);
+        }
+    } else {
+        let select = langSelect[i];
+        select.innerHTML = langCopy[0];
+        langCopy = langCopy.filter((item)=>item !== langCopy[0]);
+    }
+});
+sun.addEventListener("click", ()=>{
+    let theme = document.documentElement.getAttribute("data-theme");
+    theme = theme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("data-theme", theme);
+});
+for(let i = 0; i < langChange.length; i++)langChange[i].addEventListener("click", ()=>{
+    let lang = langChange[i].innerHTML;
+    document.documentElement.setAttribute("lang", lang.toLowerCase());
+    localStorage.setItem("lang", lang);
+    window.location.reload();
+});
+function changeLang(lang) {
+    // Get all elements that have text content
+    const elements = document.querySelectorAll("*:not(script):not(style):not(br):not(hr):not(img):not(input):not(textarea):not(select):not(option):not(canvas):not(svg):not(path):not(linearGradient):not(radialGradient):not(stop):not(mask):not(symbol):not(use):not(iframe):not(video):not(audio)");
+    // Loop through each element and replace its text with its translation
+    elements.forEach((element)=>{
+        const text = element.textContent.trim();
+        if (text && lang[text]) element.textContent = lang[text];
+    });
+}
+changeLang((0, _frJsonDefault.default));
 
-},{"91f6845bf1b9f76f":"5JT5t","1fdd1c198e301d10":"kZWPF","9cef54bafad3db9d":"k6ib3","66a39b11da4766a5":"b9oTR"}],"5JT5t":[function(require,module,exports) {
-module.exports = require("e68925a3a7526e03").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
+},{"ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ","./assets/langs/fr.json":"k2KFO","@parcel/transformer-js/src/esmodule-helpers.js":"5KLut"}],"4RlJK":[function(require,module,exports) {
+module.exports = require("dc7bd749ba8fa81b").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
 
-},{"e68925a3a7526e03":"jMDco"}],"jMDco":[function(require,module,exports) {
+},{"dc7bd749ba8fa81b":"he98u"}],"he98u":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -660,15 +716,48 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"kZWPF":[function(require,module,exports) {
-module.exports = require("965bda89343b7fab").getBundleURL("UckoE") + "arrowLeftActif.b99280bc.svg" + "?" + Date.now();
+},{}],"5m9L2":[function(require,module,exports) {
+module.exports = require("db97c75acb09be3d").getBundleURL("UckoE") + "arrowLeftActif.b99280bc.svg" + "?" + Date.now();
 
-},{"965bda89343b7fab":"jMDco"}],"k6ib3":[function(require,module,exports) {
-module.exports = require("2aa77dd159a69a3e").getBundleURL("UckoE") + "arrowRightHover.8ca0ee8b.svg" + "?" + Date.now();
+},{"db97c75acb09be3d":"he98u"}],"koWzv":[function(require,module,exports) {
+module.exports = require("33d76bafa93b482f").getBundleURL("UckoE") + "arrowRightHover.8ca0ee8b.svg" + "?" + Date.now();
 
-},{"2aa77dd159a69a3e":"jMDco"}],"b9oTR":[function(require,module,exports) {
-module.exports = require("c06ec36f129e79a").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
+},{"33d76bafa93b482f":"he98u"}],"cgivZ":[function(require,module,exports) {
+module.exports = require("3cdef18743ffd8db").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
 
-},{"c06ec36f129e79a":"jMDco"}]},["2V1yg","bB7Pu"], "bB7Pu", "parcelRequire94c2")
+},{"3cdef18743ffd8db":"he98u"}],"k2KFO":[function(require,module,exports) {
+module.exports = JSON.parse('{"title":"Salut, je suis Tristan !"}');
+
+},{}],"5KLut":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["77IDL","bB7Pu"], "bB7Pu", "parcelRequire94c2")
 
 //# sourceMappingURL=index.3d214d75.js.map

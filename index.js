@@ -10,11 +10,19 @@ const prevActif = new URL("assets/arrow/arrowLeftActif.svg", import.meta.url)
 const nextHover = new URL("assets/arrow/arrowRightHover.svg", import.meta.url)
 const prevHover = new URL("assets/arrow/arrowLeftHover.svg", import.meta.url)
 
+const sun = document.getElementById("sun")
+
+const langList = ["FR", "EN", "ES"]
+const langSelect = document.getElementsByClassName("languages")
+let langChange = document.getElementsByClassName("can-choose")
+
+import fr from "./assets/langs/fr.json"
+
 const scrollType = {
     "profile": 0,
     "skills": 1100,
-    "projects": 1800,
-    "software": 2500,
+    "projects": 1750,
+    "software": 2400,
     "contact": 5000
 }
 
@@ -54,7 +62,6 @@ prevBtn.addEventListener("click", () => {
 })
 redirectButton.forEach(button => {
     button.addEventListener("click", () => {
-        console.log("a")
         let url = button.getAttribute("redirect")
         window.open(url, "_blank")
     })
@@ -68,3 +75,62 @@ Object.keys(scrollType).forEach(key => {
         window.scrollTo({top: scrollSize, behavior: "smooth"})
     })
 })
+
+window.addEventListener("DOMContentLoaded", () => {
+    let theme = localStorage.getItem("data-theme")
+    let lang = localStorage.getItem("lang").toUpperCase()
+    if (theme) {
+        document.documentElement.setAttribute("data-theme", theme)
+    }
+    if (lang) {
+        document.documentElement.setAttribute("lang", lang.toLowerCase())
+    } else {
+        lang = "FR"
+        localStorage.setItem("lang", lang)
+    }
+    let langCopy = [...langList]
+    for (let i = 0; i < langSelect.length; i++) {
+        if (langCopy.length === langList.length) {
+            let select = langSelect[i]
+            if (select.classList.contains("active")) {
+                select.innerHTML = lang
+                langCopy = langCopy.filter(item => item !== lang)
+            }
+        } else {
+            let select = langSelect[i]
+            select.innerHTML = langCopy[0]
+            langCopy = langCopy.filter(item => item !== langCopy[0])
+        }
+    }
+})
+
+sun.addEventListener("click", () => {
+    let theme = document.documentElement.getAttribute("data-theme")
+    theme = theme === "dark" ? "light" : "dark"
+    document.documentElement.setAttribute("data-theme", theme)
+    localStorage.setItem("data-theme", theme)
+})
+
+for (let i = 0; i < langChange.length; i++) {
+    langChange[i].addEventListener("click", () => {
+        let lang = langChange[i].innerHTML
+        document.documentElement.setAttribute("lang", lang.toLowerCase())
+        localStorage.setItem("lang", lang)
+        window.location.reload()
+    })
+}
+
+function changeLang(lang) {
+    // Get all elements that have text content
+    const elements = document.querySelectorAll('*:not(script):not(style):not(br):not(hr):not(img):not(input):not(textarea):not(select):not(option):not(canvas):not(svg):not(path):not(linearGradient):not(radialGradient):not(stop):not(mask):not(symbol):not(use):not(iframe):not(video):not(audio)');
+
+    // Loop through each element and replace its text with its translation
+    elements.forEach((element) => {
+        const text = element.textContent.trim();
+        if (text && lang[text]) {
+            element.textContent = lang[text];
+        }
+    });
+}
+
+changeLang(fr)

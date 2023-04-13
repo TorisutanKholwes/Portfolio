@@ -4,51 +4,69 @@
 // Import Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-// Primary Color
-$white: #F9FAFE;
-$midnight: #313C58;
-$rhythm: #727D9A;
-$lavender_gray: #C2C6D0;
-$bright_gray: #EBECF2;
-$blue: #7784EE;
-$orange: #EC9657;
-$macaroni_and_cheese: #FEBD8E;
-$lumber: #FCE3D3;
-
-// Secondary Color
-$yellow: #FEE876;
-$banana_mania: #FFF2B0;
-$artichoke: #94A577;
-$sage: #B3C592;
-$tea_green: #CDE0AA;
-
 // Functions
 @function pxToVw($px) {
   $vw: (math.div($px, 1920)) * 100vw;
   @return $vw;
 }
 
-// Light Theme
-// Global Styles
+// Set color variables
+@mixin global-theme {
+  --blue: #7784EE;
+  --orange: #EC9657;
+  --macaroni_and_cheese: #FEBD8E;
+  --lumber: #FCE3D3;
+  --yellow: #FEE876;
+  --banana_mania: #FFF2B0;
+  --artichoke: #94A577;
+  --sage: #B3C592;
+  --tea_green: #CDE0AA;
+}
+
+@mixin theme-light {
+  --white: #F9FAFE;
+  --midnight: #313C58;
+  --rhythm: #727D9A;
+  --lavender_gray: #C2C6D0;
+  --bright_gray: #EBECF2;
+}
+
+@mixin theme-dark {
+  --white: #313C58;
+  --midnight: white;
+  --rhythm: white;
+  --lavender_gray: #C2C6D04D;
+  --bright_gray: #EBECF214;
+}
+
+:root {
+  @include global-theme;
+  @include theme-light;
+}
+[data-theme="dark"] {
+    @include global-theme;
+    @include theme-dark;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
-  background-color: $white;
+  //background-color: --white;
+  background-color: var(--white);
   margin: 0;
 }
 
 h1 {
   font-weight: 700;
   font-size: pxToVw(48);
-  color: $midnight;
+  color: var(--midnight);
   text-align: center;
 }
 
 h2 {
   font-weight: 500;
   font-size: pxToVw(24);
-  color: $rhythm;
+  color: var(--rhythm);
   text-align: center;
   margin: 0;
   padding: 13.021px 0;
@@ -58,7 +76,7 @@ h3 {
   position: relative;
   font-size: pxToVw(96);
   font-weight: 700;
-  color: $bright_gray;
+  color: var(--bright_gray);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +89,7 @@ h3 {
     transform: translate(-50%, -50%);
     font-size: pxToVw(32);
     font-weight: 500;
-    color: $midnight;
+    color: var(--midnight);
   }
 }
 
@@ -79,35 +97,35 @@ h4 {
   font-weight: 600;
   font-size: pxToVw(20);
   text-align: center;
-  color: $rhythm;
+  color: var(--rhythm);
   margin: 0;
 }
 
  p {
    font-weight: 400;
    font-size: pxToVw(16);
-   color: $rhythm;
+   color: var(--rhythm);
  }
 
  a {
    font-weight: 600;
    font-size: pxToVw(16);
-   color: $orange;
+   color: var(--orange);
    text-decoration: none;
 
    &:hover {
-     color: $macaroni_and_cheese;
+     color: var(--macaroni_and_cheese);
    }
  }
 
  li {
-   color: $rhythm;
+   color: var(--rhythm);
    font-weight: 500;
    font-size: pxToVw(20);
  }
 
  button {
-   background: linear-gradient(90deg, $macaroni_and_cheese 0%, $orange 107.94%);
+   background: linear-gradient(90deg, var(--macaroni_and_cheese) 0%, var(--orange) 107.94%);
    border: none;
    border-radius: pxToVw(15);
    width: pxToVw(170);
@@ -117,17 +135,18 @@ h4 {
    font-size: pxToVw(16);
    text-align: center;
    &:hover {
-     background: $orange;
+     background: var(--orange);
    }
    &:active {
-     background: $lumber;
-     color: $orange;
+     background: var(--lumber);
+     color: var(--orange);
    }
  }
 
  input {
    box-sizing: border-box;
-   border: 1px solid $lavender_gray;
+   border: 1px solid var(--lavender_gray);
+   background: var(--white);
    width: pxToVw(560);
    height: pxToVw(60);
    border-radius: 10px;
@@ -136,11 +155,11 @@ h4 {
      font-family: 'Poppins', sans-serif;
      font-weight: 400;
      font-size: pxToVw(16);
-     color: $lavender_gray;
+     color: var(--lavender_gray);
    }
    &:focus-visible {
      outline: none;
-     border: 1px solid $orange;
+     border: 1px solid var(--orange);
    }
  }
 
@@ -152,7 +171,7 @@ h4 {
 
 // Header styles
 .devtype {
-  color: $blue;
+  color: var(--blue);
 }
 
 header {
@@ -164,6 +183,10 @@ header {
   padding-left: pxToVw(20);
   padding-top: pxToVw(20);
   z-index: 10;
+  cursor: pointer;
+  [data-theme="dark"] & img {
+    content: url("assets/icons/moon.svg");
+  }
   &::before {
     content: '';
     position: absolute;
@@ -171,7 +194,10 @@ header {
     left: pxToVw(-100);
     width: pxToVw(200);
     height: pxToVw(200);
-    background-color: $banana_mania;
+    background-color: var(--banana_mania);
+    [data-theme="dark"] & {
+      background-color: var(--lavender_gray);
+    }
     border-radius: 50%;
     z-index: -1;
     overflow: hidden;
@@ -199,7 +225,7 @@ header {
         content: '';
         width: 100%;
         height: 2px;
-        background-color: $orange;
+        background-color: var(--orange);
         border-radius: 2px;
         position: absolute;
         bottom: pxToVw(-2);
@@ -221,14 +247,24 @@ header {
 .languages {
   font-weight: 500;
   font-size: pxToVw(20);
-  color: $lavender_gray;
+  color: var(--lavender_gray);
+  [data-theme="dark"] & {
+    color: var(--white);
+  }
   margin-top: 0;
   margin-bottom: pxToVw(10);
   margin-left: pxToVw(15);
   &.active {
-    color: $rhythm;
+    color: var(--rhythm);
+    [data-theme="dark"] & {
+      color: var(--white);
+    }
     margin-top: pxToVw(10);
   }
+}
+
+.can-choose {
+  cursor: pointer;
 }
 
 #language {
@@ -278,7 +314,10 @@ header {
     left: pxToVw(12);
     width: pxToVw(54);
     height: pxToVw(2);
-    background: $lavender_gray;
+    background: var(--lavender_gray);
+    [data-theme="dark"] & {
+      background: var(--white);
+    }
   }
 }
 
@@ -321,7 +360,7 @@ header {
 }
 
 .code {
-  background: $bright_gray;
+  background: var(--bright_gray);
   border-radius: pxToVw(10);
   width: pxToVw(178);
   text-align: center;
@@ -378,14 +417,14 @@ header {
 }
 
 .progress-skill {
-  background-color: $bright_gray;
+  background-color: var(--bright_gray);
   border-radius: pxToVw(15);
   width: pxToVw(498);
   height: pxToVw(10);
 }
 
 .skill-bar {
-  background-color: $blue;
+  background-color: var(--blue);
   height: pxToVw(10);
   text-align: right;
   & p {
@@ -461,8 +500,8 @@ header {
   height: pxToVw(50);
   cursor: pointer;
   &:hover {
-    fill: $banana_mania;
-    stroke: $banana_mania;
+    fill: var(--banana_mania);
+    stroke: var(--banana_mania);
   }
 }
 
@@ -507,10 +546,10 @@ header {
   width: pxToVw(1160);
   text-align: center;
   & thead {
-    background: $bright_gray;
+    background: var(--bright_gray);
     height: pxToVw(59);
     & th {
-      color: $rhythm;
+      color: var(--rhythm);
       font-weight: 400;
       font-size: pxToVw(16);
     }
@@ -519,9 +558,9 @@ header {
     & td {
       font-weight: 600;
       font-size: pxToVw(16);
-      color: $rhythm;
+      color: var(--rhythm);
       padding: pxToVw(16) 0;
-      border-bottom: solid pxToVw(1) $lavender_gray;
+      border-bottom: solid pxToVw(1) var(--lavender_gray);
     }
   }
 }
@@ -574,7 +613,7 @@ header {
 #degrade {
   width: pxToVw(1920);
   height: pxToVw(700);
-  background: linear-gradient(180deg, $white 0%, #FCFDFF 51.56%, white 100%);
+  background: linear-gradient(180deg, --white 0%, #FCFDFF 51.56%, white 100%);
   position: absolute;
   left: 0;
   top: pxToVw(375);
