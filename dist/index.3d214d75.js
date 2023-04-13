@@ -560,6 +560,10 @@ function hmrAccept(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _frJson = require("./assets/langs/fr.json");
 var _frJsonDefault = parcelHelpers.interopDefault(_frJson);
+var _enJson = require("./assets/langs/en.json");
+var _enJsonDefault = parcelHelpers.interopDefault(_enJson);
+var _esJson = require("./assets/langs/es.json");
+var _esJsonDefault = parcelHelpers.interopDefault(_esJson);
 const carrousel_container = document.getElementById("project-carrousel");
 const slide = document.querySelector(".project");
 const numSlides = document.querySelectorAll(".project").length;
@@ -641,6 +645,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
         lang = "FR";
         localStorage.setItem("lang", lang);
     }
+    changeLang(lang === "FR" ? (0, _frJsonDefault.default) : lang === "EN" ? (0, _enJsonDefault.default) : (0, _esJsonDefault.default));
     let langCopy = [
         ...langList
     ];
@@ -674,12 +679,15 @@ function changeLang(lang) {
     // Loop through each element and replace its text with its translation
     elements.forEach((element)=>{
         const text = element.textContent.trim();
-        if (text && lang[text]) element.textContent = lang[text];
+        if (element.children.length > 0) return;
+        if (text && lang[text]) {
+            element.innerHTML = lang[text];
+            if (element.hasAttribute("text")) element.setAttribute("text", lang[text]);
+        }
     });
 }
-changeLang((0, _frJsonDefault.default));
 
-},{"ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ","./assets/langs/fr.json":"k2KFO","@parcel/transformer-js/src/esmodule-helpers.js":"5KLut"}],"4RlJK":[function(require,module,exports) {
+},{"ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ","./assets/langs/fr.json":"k2KFO","@parcel/transformer-js/src/esmodule-helpers.js":"5KLut","./assets/langs/en.json":"cFDQy","./assets/langs/es.json":"8q2U5"}],"4RlJK":[function(require,module,exports) {
 module.exports = require("dc7bd749ba8fa81b").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
 
 },{"dc7bd749ba8fa81b":"he98u"}],"he98u":[function(require,module,exports) {
@@ -726,7 +734,7 @@ module.exports = require("33d76bafa93b482f").getBundleURL("UckoE") + "arrowRight
 module.exports = require("3cdef18743ffd8db").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
 
 },{"3cdef18743ffd8db":"he98u"}],"k2KFO":[function(require,module,exports) {
-module.exports = JSON.parse('{"title":"Salut, je suis Tristan !"}');
+module.exports = JSON.parse('{"profile":"Profil","skills":"Comp\xe9tences","projects":"Projets","software":"Logiciels","contact":"Contact","title":"Salut, je suis Tristan !","subtitle":"Un d\xe9veloppeur <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> et <span class=\\"devtype\\">Web</span>","profileDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","totalCodeTime":"Nombre d\'heures de code depuis F\xe9vrier 2021 :","averageCodeTime":"Nombre d\'heures de code par jour en moyenne depuis F\xe9vrier 2021 :","portfolioDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","portfolioLanguages":"Langages utilis\xe9s :","seeProject":"Voir le projet","javawarsDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","javawarsLanguages":"Langages utilis\xe9s :","softwareLogo":"Logo","softwareName":"Titre","softwareCompany":"Entreprise","softwareTimeUse":"Taux d\'utilisation","softwareLink":"Lien","socialText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis","inputNamePlaceholder":"Nom*","inputNameError":"*Le nom est obligatoire","inputEmailPlaceholder":"Email*","inputEmailError":"*L\'email est obligatoire","inputSubjectPlaceholder":"Sujet*","inputSubjectError":"*Le sujet est obligatoire","inputSendMessage":"Envoyer le message"}');
 
 },{}],"5KLut":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -757,6 +765,12 @@ exports.export = function(dest, destName, get) {
         get: get
     });
 };
+
+},{}],"cFDQy":[function(require,module,exports) {
+module.exports = JSON.parse('{"profile":"Profile","skills":"Skills","projects":"Projects","software":"Software","contact":"Contact","title":"Hi, I\'m Tristan!","subtitle":"A <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> and <span class=\\"devtype\\">Web</span> developer","profileDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","totalCodeTime":"Total hours of code since February 2021:","averageCodeTime":"Average hours of code per day since February 2021:","portfolioDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","portfolioLanguages":"Languages used:","seeProject":"See project","javawarsDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","javawarsLanguages":"Languages used:","softwareLogo":"Logo","softwareName":"Title","softwareCompany":"Company","softwareTimeUse":"Usage rate","softwareLink":"Link","socialText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis","inputNamePlaceholder":"Name*","inputNameError":"*Name is required","inputEmailPlaceholder":"Email*","inputEmailError":"*Email is required","inputSubjectPlaceholder":"Subject","inputSubjectError":"*Subject is required","inputSendMessage":"Send message"}');
+
+},{}],"8q2U5":[function(require,module,exports) {
+module.exports = JSON.parse('{"profile":"Perfil","skills":"Habilidades","projects":"Proyectos","software":"Software","contact":"Contacto","title":"\xa1Hola, soy Tristan!","subtitle":"Un desarrollador <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> y <span class=\\"devtype\\">Web</span>","profileDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","totalCodeTime":"Horas totales de c\xf3digo desde febrero de 2021:","averageCodeTime":"Horas promedio de c\xf3digo por d\xeda desde febrero de 2021:","portfolioDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","portfolioLanguages":"Idiomas utilizados:","seeProject":"Ver proyecto","javawarsDescription":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.","javawarsLanguages":"Idiomas utilizados:","softwareLogo":"Logo","softwareName":"T\xedtulo","softwareCompany":"Empresa","softwareTimeUse":"Tasa de uso","softwareLink":"Enlace","socialText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis","inputNamePlaceholder":"Nombre*","inputNameError":"*El nombre es obligatorio","inputEmailPlaceholder":"Email*","inputEmailError":"*El correo electr\xf3nico es obligatorio","inputSubjectPlaceholder":"Asunto*","inputSubjectError":"*El asunto es obligatorio","inputSendMessage":"Enviar mensaje"}');
 
 },{}]},["77IDL","bB7Pu"], "bB7Pu", "parcelRequire94c2")
 

@@ -17,6 +17,8 @@ const langSelect = document.getElementsByClassName("languages")
 let langChange = document.getElementsByClassName("can-choose")
 
 import fr from "./assets/langs/fr.json"
+import en from "./assets/langs/en.json"
+import es from "./assets/langs/es.json"
 
 const scrollType = {
     "profile": 0,
@@ -88,6 +90,7 @@ window.addEventListener("DOMContentLoaded", () => {
         lang = "FR"
         localStorage.setItem("lang", lang)
     }
+    changeLang(lang === "FR" ? fr : lang === "EN" ? en : es)
     let langCopy = [...langList]
     for (let i = 0; i < langSelect.length; i++) {
         if (langCopy.length === langList.length) {
@@ -127,10 +130,12 @@ function changeLang(lang) {
     // Loop through each element and replace its text with its translation
     elements.forEach((element) => {
         const text = element.textContent.trim();
+        if (element.children.length > 0) return;
         if (text && lang[text]) {
-            element.textContent = lang[text];
+            element.innerHTML = lang[text];
+            if (element.hasAttribute("text")) {
+                element.setAttribute("text", lang[text])
+            }
         }
     });
 }
-
-changeLang(fr)

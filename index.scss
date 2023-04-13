@@ -184,6 +184,8 @@ header {
   padding-top: pxToVw(20);
   z-index: 10;
   cursor: pointer;
+  width: pxToVw(100);
+  margin-right: pxToVw(1140);
   [data-theme="dark"] & img {
     content: url("assets/icons/moon.svg");
   }
@@ -196,7 +198,7 @@ header {
     height: pxToVw(200);
     background-color: var(--banana_mania);
     [data-theme="dark"] & {
-      background-color: var(--lavender_gray);
+      background-color: var(--white);
     }
     border-radius: 50%;
     z-index: -1;
@@ -575,9 +577,6 @@ header {
   width: pxToVw(560);
 }
 
-#contact-form {
-
-}
 
 .form-input {
 
@@ -608,12 +607,12 @@ header {
   padding-right: pxToVw(30);
   cursor: pointer;
 }
-/*
+
 // Background element (aled)
 #degrade {
-  width: pxToVw(1920);
+  width: pxToVw(1900);
   height: pxToVw(700);
-  background: linear-gradient(180deg, --white 0%, #FCFDFF 51.56%, white 100%);
+  background: linear-gradient(180deg, var(--white) 0%, var(--white) 100%);
   position: absolute;
   left: 0;
   top: pxToVw(375);
@@ -632,21 +631,35 @@ header {
   border-radius: 50%;
   filter: blur(pxToVw(175));
   position: absolute;
+  pointer-events: none;
 }
 
 .green {
   background: #CDE0AA;
+  [data-theme="dark"] & {
+    background: #A448DD80;
+  }
 }
 
 .blue {
   background: #D2D7FF;
+  [data-theme="dark"] & {
+    background: #869AE280;
+
+  }
 }
 
 .red {
   background: #FCE3D3;
+  [data-theme="dark"] & {
+    background: #EC965766;
+  }
 }
 
 #e1 {
+  [data-theme="dark"] & {
+    display: none;
+  }
   top: pxToVw(67);
   left: pxToVw(-218);
 }
@@ -655,6 +668,12 @@ header {
   //filter: blur(50px);
   top: pxToVw(-388);
   left: pxToVw(-42);
+  [data-theme="dark"] & {
+    top: pxToVw(-314);
+    left: pxToVw(-158);
+    width: pxToVw(835);
+    height: pxToVw(835);
+  }
 }
 
 #e3 {
@@ -662,11 +681,17 @@ header {
   height: pxToVw(990);
   top: pxToVw(-585);
   left: pxToVw(514);
+  [data-theme="dark"] & {
+    top: pxToVw(-585);
+    left: pxToVw(514);
+  }
 }
 
 #e4 {
-  width: pxToVw(1083);
+  width: pxToVw(520);
   height: pxToVw(1083);
   top: pxToVw(-372);
   left: pxToVw(1378);
-}*/
+  overflow: hidden;
+  float: right;
+}

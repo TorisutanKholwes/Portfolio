@@ -13,11 +13,11 @@
         </div>
         <nav id="tab">
             <ul id="tab-nav">
-                <li id="tab-profile">Profil</li>
-                <li id="tab-skills">Compétences</li>
-                <li id="tab-projects">Projets</li>
-                <li id="tab-software">Logiciels</li>
-                <li id="tab-contact">Contact</li>
+                <li id="tab-profile">profile</li>
+                <li id="tab-skills">skills</li>
+                <li id="tab-projects">projects</li>
+                <li id="tab-software">software</li>
+                <li id="tab-contact">contact</li>
                 <li class="no-select">
                     <div id="language">
                         <input type="checkbox" id="show-language">
@@ -38,40 +38,41 @@
         <div id="name">
             <img id="logo" src="./assets/logo/logoBlue.svg" alt="Logo">
             <div id="baseline">
-                <h1>Salut, je suis Tristan !</h1>
-                <h2>Un développeur <span class="devtype">Java</span>, <span class="devtype">Python</span> et <span class="devtype">Web</span></h2>
+                <h1>title</h1>
+                <!--<h2>Un développeur <span class="devtype">Java</span>, <span class="devtype">Python</span> et <span class="devtype">Web</span></h2>-->
+                <h2>subtitle</h2>
             </div>
         </div>
     </header>
     <div class="section" id="profile">
-        <h3 text="Profil">Profil</h3>
+        <h3 text="Profil">profile</h3>
         <div id="profiledesc">
             <div>
                 <img id="profile-picture" src="./assets/profile_picture.jpg" alt="Ma photo">
             </div>
             <div id="profiletext">
-                <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.</p>
+                <p id="description">profileDescription</p>
                 <div id="all-time">
                     <div class="time" id="total-code">
                         <div class="code">
                             <img src="assets/icons/clock.svg" alt="Horloge">
                             <h4>487h 44m</h4>
                         </div>
-                        <p>Nombre d'heures de code depuis Février 2021 :</p>
+                        <p>totalCodeTime</p>
                     </div>
                     <div class="time" id="daily-code">
                         <div class="code">
                             <img src="assets/icons/calendarClock.svg" alt="Calendrier">
                             <h4>2h 10m</h4>
                         </div>
-                        <p>Nombre d'heures de code par jour en moyenne depuis Février 2021 :</p>
+                        <p>averageCodeTime</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="section" id="skill">
-        <h3 text="Compétences">Compétences</h3>
+        <h3 text="Compétences">skills</h3>
         <div class="all-skill">
             <section class="language-skill">
                 <img class="language-img" src="assets/software/electron.svg" alt="Electron JS">
@@ -160,24 +161,24 @@
         </div>
     </div>
     <div class="section" id="project">
-        <h3 text="Projets">Projets</h3>
+        <h3 text="Projets">projects</h3>
         <div id="projects">
             <div class="carrousel-wrapper">
                 <div id="project-carrousel">
                     <div class="project current-project" id="portfolio">
                         <img class="project-img" src="https://media.discordapp.net/attachments/896690238418743327/1095716106070675567/image.png?width=1021&height=702" alt="">
                         <div class="project-desc">
-                            <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.</p>
+                            <p class="project-description">portfolioDescription</p>
                             <p class="project-language">Langage utilisé : <strong>React JS</strong> et <strong>SCSS</strong></p>
-                            <button redirect="https://github.com/TorisutanKholwes/Portfolio" class="project-button">Voir le projet</button>
+                            <button redirect="https://github.com/TorisutanKholwes/Portfolio" class="project-button">seeProject</button>
                         </div>
                     </div>
                     <div class="project" id="javawars">
                         <img class="project-img" src="https://media.discordapp.net/attachments/896690238418743327/1095716106070675567/image.png?width=1021&height=702" alt="">
                         <div class="project-desc">
-                            <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.</p>
+                            <p class="project-description">javawarsDescription</p>
                             <p class="project-language">Langage utilisé : <strong>Java</strong></p>
-                            <button redirect="https://github.com/TorisutanKholwes/JavaWars2" class="project-button">Voir le projet</button>
+                            <button redirect="https://github.com/TorisutanKholwes/JavaWars2" class="project-button">seeProject</button>
                         </div>
                     </div>
                 </div>
@@ -189,15 +190,15 @@
         </div>
     </div>
     <div class="section" id="software">
-        <h3 text="Logiciels">Logiciels</h3>
+        <h3 text="Logiciels">software</h3>
         <table id="softwareTable">
             <thead>
                 <tr>
-                    <th>Logo</th>
-                    <th>Titre</th>
-                    <th>Nom de l'entreprise</th>
-                    <th>Taux d'utilisation</th>
-                    <th>Lien</th>
+                    <th>softwareLogo</th>
+                    <th>softwareName</th>
+                    <th>softwareCompany</th>
+                    <th>softwareTimeUse</th>
+                    <th>softwareLink</th>
                 </tr>
             </thead>
             <tbody>
@@ -214,7 +215,7 @@
                             <img class="filled" src="assets/star/star.svg" alt="Etoile">
                         </div>
                     </td>
-                    <td><a href="https://www.jetbrains.com/idea/">Lien</a></td>
+                    <td><a href="https://www.jetbrains.com/idea/">softwareLink</a></td>
                 </tr>
                 <tr>
                     <td><img src="assets/software/webstrom.svg" alt="Webstorm"></td>
@@ -229,7 +230,7 @@
                             <img src="assets/star/star.svg" alt="Etoile">
                         </div>
                     </td>
-                    <td><a href="https://www.jetbrains.com/webstorm/">Lien</a></td>
+                    <td><a href="https://www.jetbrains.com/webstorm/">softwareLink</a></td>
                 </tr>
                 <tr>
                     <td><img src="assets/software/pycharm.svg" alt="Pycharm"></td>
@@ -244,7 +245,7 @@
                             <img src="assets/star/star.svg" alt="Etoile">
                         </div>
                     </td>
-                    <td><a href="https://www.jetbrains.com/pycharm/">Lien</a></td>
+                    <td><a href="https://www.jetbrains.com/pycharm/">softwareLink</a></td>
                 </tr>
                 <tr>
                     <td><img src="assets/software/vsc.svg" alt="Visual Studio Code"></td>
@@ -259,7 +260,7 @@
                             <img src="assets/star/star.svg" alt="Etoile">
                         </div>
                     </td>
-                    <td><a href="https://code.visualstudio.com/">Lien</a></td>
+                    <td><a href="https://code.visualstudio.com/">softwareLink</a></td>
                 </tr>
                 <tr>
                     <td><img src="assets/software/xcode.svg" alt="XCode"></td>
@@ -274,7 +275,7 @@
                             <img src="assets/star/star.svg" alt="Etoile">
                         </div>
                     </td>
-                    <td><a href="https://developer.apple.com/xcode/">Lien</a></td>
+                    <td><a href="https://developer.apple.com/xcode/">softwareLink</a></td>
                 </tr>
                 <tr>
                     <td><img src="assets/social/github.svg" alt="Github"></td>
@@ -289,16 +290,16 @@
                             <img src="assets/star/star.svg" alt="Etoile">
                         </div>
                     </td>
-                    <td><a href="https://www.github.com">Lien</a></td>
+                    <td><a href="https://www.github.com">softwareLink</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="section" id="contact">
-        <h3 text="Contact">Contact</h3>
+        <h3 text="Contact">contact</h3>
         <div id="contact-element">
             <div id="social-description">
-                <p id="social_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis</p>
+                <p id="social_text">socialText</p>
                 <div id="social-network">
                     <a href="https://www.github.com/TorisutanKholwes"><img class="social-img" src="assets/social/github.svg" alt="Github"></a>
                     <a href="https://twitter.com/torisutan_Khlws"><img class="social-img" src="assets/social/twitter.svg" alt="Twitter"></a>
@@ -309,23 +310,24 @@
             <div id="contact-form">
                 <div class="form-input">
                     <input placeholder="Nom*" type="text">
-                    <p>*Le nom est obligatoire</p>
+                    <p>inputNameError</p>
                 </div>
                 <div class="form-input">
                     <input placeholder="Email*" type="text">
-                    <p>*L'email est obligatoire</p>
+                    <p>inputEmailError</p>
                 </div>
                 <div class="form-input">
                     <textarea placeholder="Sujet*"></textarea>
-                    <p>*Le sujet est obligatoire</p>
+                    <p>inputSubjectError</p>
                 </div>
-                <button id="send-message">Envoyer le message</button>
+                <button id="send-message">inputSendMessage</button>
             </div>
         </div>
     </div>
     <footer>
         <p id="footer">Design by Xbition-art & Coding by Tristan © 2022 - Réalisé avec 💛 et passion.</p>
     </footer>
+    <script type="module" src="index.js"></script>
     <div id="background_element">
         <div id="degrade"></div>
         <div class="ellipse blue" id="e1"></div>
@@ -333,6 +335,5 @@
         <div class="ellipse green" id="e3"></div>
         <div class="ellipse blue" id="e4"></div>
     </div>
-    <script type="module" src="index.js"></script>
 </body>
 </html>
