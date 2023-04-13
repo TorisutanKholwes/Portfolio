@@ -10,6 +10,22 @@ const prevActif = new URL("assets/arrow/arrowLeftActif.svg", import.meta.url)
 const nextHover = new URL("assets/arrow/arrowRightHover.svg", import.meta.url)
 const prevHover = new URL("assets/arrow/arrowLeftHover.svg", import.meta.url)
 
+const scrollType = {
+    "profile": 0,
+    "skills": 1100,
+    "projects": 1800,
+    "software": 2500,
+    "contact": 5000
+}
+
+function pxToVh(px) {
+    return (px / 1920) * 100;
+}
+
+function vhToPx(vh, width) {
+    return (vh / 100) * width;
+}
+
 nextBtn.addEventListener("click", () => {
     const slideWith = slide.clientWidth;
     if (carrousel_container.scrollLeft % slideWith !== 0) return
@@ -41,5 +57,14 @@ redirectButton.forEach(button => {
         console.log("a")
         let url = button.getAttribute("redirect")
         window.open(url, "_blank")
+    })
+})
+
+Object.keys(scrollType).forEach(key => {
+    const element = document.getElementById("tab-" + key)
+    element.addEventListener("click", () => {
+        let scrollSize = scrollType[key]
+        scrollSize = vhToPx(pxToVh(scrollSize), window.innerWidth)
+        window.scrollTo({top: scrollSize, behavior: "smooth"})
     })
 })

@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap";
 body {
-  background-color: #f5f5f5;
+  background-color: #f9fafe;
   margin: 0;
   font-family: Poppins, sans-serif;
   font-style: normal;
@@ -126,7 +126,13 @@ textarea {
   color: #7784ee;
 }
 
+header {
+  z-index: 2;
+  position: relative;
+}
+
 #sun {
+  z-index: 10;
   padding-top: 1.04167vw;
   padding-left: 1.04167vw;
 }
@@ -155,6 +161,7 @@ textarea {
 }
 
 #tab-nav li {
+  cursor: pointer;
   margin-top: .208333vw;
   margin-bottom: .208333vw;
   margin-right: 2.08333vw;
@@ -208,6 +215,7 @@ textarea {
 
 #current-language {
   vertical-align: middle;
+  cursor: pointer;
   display: flex;
 }
 
@@ -258,12 +266,13 @@ textarea {
   height: 5.20833vw;
 }
 
-#profile {
-  background-color: #fff;
-}
-
 .section {
   padding-top: 5.20833vw;
+}
+
+#profile {
+  z-index: 2;
+  position: relative;
 }
 
 #profile-picture {
@@ -278,6 +287,7 @@ textarea {
 }
 
 #profiledesc {
+  z-index: 2;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -445,7 +455,7 @@ textarea {
   margin: 0;
   padding: 0;
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 #project-carrousel::-webkit-scrollbar {
@@ -523,6 +533,13 @@ textarea {
 #footer {
   text-align: center;
   padding: 5.72917vw 0 1.82292vw;
+}
+
+.social-img {
+  width: 2.1875vw;
+  height: 2.1875vw;
+  cursor: pointer;
+  padding-right: 1.5625vw;
 }
 
 /*# sourceMappingURL=index.ac93e151.css.map */

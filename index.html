@@ -7,64 +7,66 @@
     <link rel="shortcut icon" href="assets/logo/logoBlueIcon.svg" type="image/svg">
 </head>
 <body>
-    <header>
-        <div id="sun">
-            <img src="assets/icons/sun.svg" alt="Sun">
-        </div>
-        <nav id="tab">
-            <ul id="tab-nav">
-                <li>Profil</li>
-                <li>Compétences</li>
-                <li>Projets</li>
-                <li>Logiciels</li>
-                <li>Contact</li>
-                <li class="no-select">
-                    <div id="language">
-                        <input type="checkbox" id="show-language">
-                        <label for="show-language">
-                            <div id="current-language">
-                                <p class="languages active" id="current">FR</p>
-                                <img id="chevron" src="assets/icons/chevron.svg" alt="">
+    <div id="background">
+        <header>
+            <div id="sun">
+                <img src="assets/icons/sun.svg" alt="Sun">
+            </div>
+            <nav id="tab">
+                <ul id="tab-nav">
+                    <li id="tab-profile">Profil</li>
+                    <li id="tab-skills">Compétences</li>
+                    <li id="tab-projects">Projets</li>
+                    <li id="tab-software">Logiciels</li>
+                    <li id="tab-contact">Contact</li>
+                    <li class="no-select">
+                        <div id="language">
+                            <input type="checkbox" id="show-language">
+                            <label for="show-language">
+                                <div id="current-language">
+                                    <p class="languages active" id="current">FR</p>
+                                    <img id="chevron" src="assets/icons/chevron.svg" alt="">
+                                </div>
+                            </label>
+                            <div id="other-language">
+                                <p class="languages">EN</p>
+                                <p class="languages">ES</p>
                             </div>
-                        </label>
-                        <div id="other-language">
-                            <p class="languages">EN</p>
-                            <p class="languages">ES</p>
                         </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div id="name">
-            <img id="logo" src="./assets/logo/logoBlue.svg" alt="Logo">
-            <div id="baseline">
-                <h1>Salut, je suis Tristan !</h1>
-                <h2>Un développeur <span class="devtype">Java</span>, <span class="devtype">Python</span> et <span class="devtype">Web</span></h2>
+                    </li>
+                </ul>
+            </nav>
+            <div id="name">
+                <img id="logo" src="./assets/logo/logoBlue.svg" alt="Logo">
+                <div id="baseline">
+                    <h1>Salut, je suis Tristan !</h1>
+                    <h2>Un développeur <span class="devtype">Java</span>, <span class="devtype">Python</span> et <span class="devtype">Web</span></h2>
+                </div>
             </div>
-        </div>
-    </header>
-    <div class="section" id="profile">
-        <h3 text="Profil">Profil</h3>
-        <div id="profiledesc">
-            <div>
-                <img id="profile-picture" src="./assets/profile_picture.jpg" alt="Ma photo">
-            </div>
-            <div id="profiletext">
-                <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.</p>
-                <div id="all-time">
-                    <div class="time" id="total-code">
-                        <div class="code">
-                            <img src="assets/icons/clock.svg" alt="Horloge">
-                            <h4>487h 44m</h4>
+        </header>
+        <div class="section" id="profile">
+            <h3 text="Profil">Profil</h3>
+            <div id="profiledesc">
+                <div>
+                    <img id="profile-picture" src="./assets/profile_picture.jpg" alt="Ma photo">
+                </div>
+                <div id="profiletext">
+                    <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio mauris, condimentum porta lacus at, venenatis commodo ipsum. Integer ultrices viverra eros non venenatis. Suspendisse et metus sed sem dictum laoreet. Aenean leo sapien, vehicula eu erat at, viverra cursus urna.</p>
+                    <div id="all-time">
+                        <div class="time" id="total-code">
+                            <div class="code">
+                                <img src="assets/icons/clock.svg" alt="Horloge">
+                                <h4>487h 44m</h4>
+                            </div>
+                            <p>Nombre d'heures de code depuis Février 2021 :</p>
                         </div>
-                        <p>Nombre d'heures de code depuis Février 2021 :</p>
-                    </div>
-                    <div class="time" id="daily-code">
-                        <div class="code">
-                            <img src="assets/icons/calendarClock.svg" alt="Calendrier">
-                            <h4>2h 10m</h4>
+                        <div class="time" id="daily-code">
+                            <div class="code">
+                                <img src="assets/icons/calendarClock.svg" alt="Calendrier">
+                                <h4>2h 10m</h4>
+                            </div>
+                            <p>Nombre d'heures de code par jour en moyenne depuis Février 2021 :</p>
                         </div>
-                        <p>Nombre d'heures de code par jour en moyenne depuis Février 2021 :</p>
                     </div>
                 </div>
             </div>
@@ -300,10 +302,10 @@
             <div id="social-description">
                 <p id="social_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque feugiat nunc nec egestas. Nunc faucibus ut mi varius faucibus. Vivamus maximus, orci sit amet semper lobortis</p>
                 <div id="social-network">
-                    <a href="https://www.github.com/TorisutanKholwes"><img src="assets/social/github.svg" alt="Github"></a>
-                    <a href="https://twitter.com/torisutan_Khlws"><img src="assets/social/twitter.svg" alt="Twitter"></a>
-                    <a href="https://www.instagram.com/torisutan_clw/"><img src="assets/social/instagram.svg" alt="Instagram"></a>
-                    <img src="assets/social/discord.svg" alt="Discord">
+                    <a href="https://www.github.com/TorisutanKholwes"><img class="social-img" src="assets/social/github.svg" alt="Github"></a>
+                    <a href="https://twitter.com/torisutan_Khlws"><img class="social-img" src="assets/social/twitter.svg" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/torisutan_clw/"><img class="social-img" src="assets/social/instagram.svg" alt="Instagram"></a>
+                    <img class="social-img" src="assets/social/discord.svg" alt="Discord">
                 </div>
             </div>
             <div id="contact-form">
@@ -326,7 +328,13 @@
     <footer>
         <p id="footer">Design by Xbition-art & Coding by Tristan © 2022 - Réalisé avec 💛 et passion.</p>
     </footer>
-
+    <div id="background_element">
+        <div id="degrade"></div>
+        <div class="ellipse blue" id="e1"></div>
+        <div class="ellipse red" id="e2"></div>
+        <div class="ellipse green" id="e3"></div>
+        <div class="ellipse blue" id="e4"></div>
+    </div>
     <script type="module" src="index.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 // Primary Color
-$white: #F5F5F5;
+$white: #F9FAFE;
 $midnight: #313C58;
 $rhythm: #727D9A;
 $lavender_gray: #C2C6D0;
@@ -28,6 +28,7 @@ $tea_green: #CDE0AA;
   @return $vw;
 }
 
+// Light Theme
 // Global Styles
 
 body {
@@ -154,9 +155,15 @@ h4 {
   color: $blue;
 }
 
+header {
+  position: relative;
+  z-index: 2;
+}
+
 #sun {
   padding-left: pxToVw(20);
   padding-top: pxToVw(20);
+  z-index: 10;
   &::before {
     content: '';
     position: absolute;
@@ -180,6 +187,7 @@ h4 {
   //align-items: center;
   justify-content: flex-end;
   li {
+    cursor: pointer;
     margin-right: pxToVw(40);
     display: inline-flex;
     position: relative;
@@ -233,6 +241,8 @@ h4 {
 #current-language {
   display: flex;
   vertical-align: middle;
+  cursor: pointer;
+
 }
 
 #chevron {
@@ -281,14 +291,15 @@ h4 {
   height: pxToVw(100);
 }
 
-#profile {
-  background-color: white;
-}
-
 // Profile styles
 
 .section {
   padding-top: pxToVw(100);
+}
+
+#profile {
+  position: relative;
+  z-index: 2;
 }
 
 #profile-picture {
@@ -306,6 +317,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .code {
@@ -464,7 +476,7 @@ h4 {
   display: flex;
   margin: 0;
   padding: 0;
-  overflow: scroll;
+  overflow: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -550,3 +562,72 @@ h4 {
   padding: pxToVw(110) 0 pxToVw(35) 0;
   text-align: center;
 }
+
+.social-img {
+  width: pxToVw(42);
+  height: pxToVw(42);
+  padding-right: pxToVw(30);
+  cursor: pointer;
+}
+/*
+// Background element (aled)
+#degrade {
+  width: pxToVw(1920);
+  height: pxToVw(700);
+  background: linear-gradient(180deg, $white 0%, #FCFDFF 51.56%, white 100%);
+  position: absolute;
+  left: 0;
+  top: pxToVw(375);
+}
+
+
+#background_element {
+  z-index: 0;
+  overflow: hidden;
+  width: pxToVw(1920);
+}
+
+.ellipse {
+  width: pxToVw(633);
+  height: pxToVw(633);
+  border-radius: 50%;
+  filter: blur(pxToVw(175));
+  position: absolute;
+}
+
+.green {
+  background: #CDE0AA;
+}
+
+.blue {
+  background: #D2D7FF;
+}
+
+.red {
+  background: #FCE3D3;
+}
+
+#e1 {
+  top: pxToVw(67);
+  left: pxToVw(-218);
+}
+
+#e2 {
+  //filter: blur(50px);
+  top: pxToVw(-388);
+  left: pxToVw(-42);
+}
+
+#e3 {
+  width: pxToVw(990);
+  height: pxToVw(990);
+  top: pxToVw(-585);
+  left: pxToVw(514);
+}
+
+#e4 {
+  width: pxToVw(1083);
+  height: pxToVw(1083);
+  top: pxToVw(-372);
+  left: pxToVw(1378);
+}*/

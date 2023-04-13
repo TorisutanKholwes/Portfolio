@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"77IDL":[function(require,module,exports) {
+})({"2V1yg":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -563,10 +563,23 @@ const numSlides = document.querySelectorAll(".project").length;
 const nextBtn = document.getElementById("arrow-right");
 const prevBtn = document.getElementById("arrow-left");
 const redirectButton = document.querySelectorAll(".project-button");
-const nextActif = new URL(require("ad33df646c140d1c"));
-const prevActif = new URL(require("415ae6cb19e139dc"));
-const nextHover = new URL(require("2874858296dbb2ae"));
-const prevHover = new URL(require("1e10f3d0bda6ee26"));
+const nextActif = new URL(require("91f6845bf1b9f76f"));
+const prevActif = new URL(require("1fdd1c198e301d10"));
+const nextHover = new URL(require("9cef54bafad3db9d"));
+const prevHover = new URL(require("66a39b11da4766a5"));
+const scrollType = {
+    "profile": 0,
+    "skills": 1100,
+    "projects": 1800,
+    "software": 2500,
+    "contact": 5000
+};
+function pxToVh(px) {
+    return px / 1920 * 100;
+}
+function vhToPx(vh, width) {
+    return vh / 100 * width;
+}
 nextBtn.addEventListener("click", ()=>{
     const slideWith = slide.clientWidth;
     if (carrousel_container.scrollLeft % slideWith !== 0) return;
@@ -598,11 +611,22 @@ redirectButton.forEach((button)=>{
         window.open(url, "_blank");
     });
 });
+Object.keys(scrollType).forEach((key)=>{
+    const element = document.getElementById("tab-" + key);
+    element.addEventListener("click", ()=>{
+        let scrollSize = scrollType[key];
+        scrollSize = vhToPx(pxToVh(scrollSize), window.innerWidth);
+        window.scrollTo({
+            top: scrollSize,
+            behavior: "smooth"
+        });
+    });
+});
 
-},{"ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ"}],"4RlJK":[function(require,module,exports) {
-module.exports = require("dc7bd749ba8fa81b").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
+},{"91f6845bf1b9f76f":"5JT5t","1fdd1c198e301d10":"kZWPF","9cef54bafad3db9d":"k6ib3","66a39b11da4766a5":"b9oTR"}],"5JT5t":[function(require,module,exports) {
+module.exports = require("e68925a3a7526e03").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
 
-},{"dc7bd749ba8fa81b":"he98u"}],"he98u":[function(require,module,exports) {
+},{"e68925a3a7526e03":"jMDco"}],"jMDco":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -636,15 +660,15 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"5m9L2":[function(require,module,exports) {
-module.exports = require("db97c75acb09be3d").getBundleURL("UckoE") + "arrowLeftActif.b99280bc.svg" + "?" + Date.now();
+},{}],"kZWPF":[function(require,module,exports) {
+module.exports = require("965bda89343b7fab").getBundleURL("UckoE") + "arrowLeftActif.b99280bc.svg" + "?" + Date.now();
 
-},{"db97c75acb09be3d":"he98u"}],"koWzv":[function(require,module,exports) {
-module.exports = require("33d76bafa93b482f").getBundleURL("UckoE") + "arrowRightHover.8ca0ee8b.svg" + "?" + Date.now();
+},{"965bda89343b7fab":"jMDco"}],"k6ib3":[function(require,module,exports) {
+module.exports = require("2aa77dd159a69a3e").getBundleURL("UckoE") + "arrowRightHover.8ca0ee8b.svg" + "?" + Date.now();
 
-},{"33d76bafa93b482f":"he98u"}],"cgivZ":[function(require,module,exports) {
-module.exports = require("3cdef18743ffd8db").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
+},{"2aa77dd159a69a3e":"jMDco"}],"b9oTR":[function(require,module,exports) {
+module.exports = require("c06ec36f129e79a").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
 
-},{"3cdef18743ffd8db":"he98u"}]},["77IDL","bB7Pu"], "bB7Pu", "parcelRequire94c2")
+},{"c06ec36f129e79a":"jMDco"}]},["2V1yg","bB7Pu"], "bB7Pu", "parcelRequire94c2")
 
 //# sourceMappingURL=index.3d214d75.js.map
