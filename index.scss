@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 // Primary Color
+$white: #F5F5F5;
 $midnight: #313C58;
 $rhythm: #727D9A;
 $lavender_gray: #C2C6D0;
@@ -32,7 +33,7 @@ $tea_green: #CDE0AA;
 body {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
-  background-color: #F9FAFE;
+  background-color: $white;
   margin: 0;
 }
 
@@ -121,6 +122,31 @@ h4 {
      background: $lumber;
      color: $orange;
    }
+ }
+
+ input {
+   box-sizing: border-box;
+   border: 1px solid $lavender_gray;
+   width: pxToVw(560);
+   height: pxToVw(60);
+   border-radius: 10px;
+   padding: pxToVw(15) pxToVw(20);
+   &::placeholder {
+     font-family: 'Poppins', sans-serif;
+     font-weight: 400;
+     font-size: pxToVw(16);
+     color: $lavender_gray;
+   }
+   &:focus-visible {
+     outline: none;
+     border: 1px solid $orange;
+   }
+ }
+
+ textarea {
+   @extend input;
+   height: pxToVw(200);
+   resize: none;
  }
 
 // Header styles
@@ -450,4 +476,77 @@ h4 {
 .project-description {
   width: pxToVw(560);
   height: pxToVw(150);
+}
+
+// Software styles
+.stars img {
+  padding-right: pxToVw(10);
+}
+
+.filled {
+  content: url("assets/star/star-fill.svg");
+}
+
+#softwareTable {
+  margin: auto;
+  border-collapse: collapse;
+  border-radius: pxToVw(10) pxToVw(10) 0 0;
+  overflow: hidden;
+  width: pxToVw(1160);
+  text-align: center;
+  & thead {
+    background: $bright_gray;
+    height: pxToVw(59);
+    & th {
+      color: $rhythm;
+      font-weight: 400;
+      font-size: pxToVw(16);
+    }
+  }
+  & tbody {
+    & td {
+      font-weight: 600;
+      font-size: pxToVw(16);
+      color: $rhythm;
+      padding: pxToVw(16) 0;
+      border-bottom: solid pxToVw(1) $lavender_gray;
+    }
+  }
+}
+
+// Contact styles
+#contact-element {
+  display: flex;
+  justify-content: center;
+}
+
+#social_text {
+  width: pxToVw(560);
+}
+
+#contact-form {
+
+}
+
+.form-input {
+
+  padding-bottom: pxToVw(30);
+
+  & p {
+    display: none;
+    margin: pxToVw(10) 0 0 0;
+    &.show {
+      display: block;
+    }
+  }
+}
+
+#send-message {
+  padding-top: pxToVw(-15);
+  width: pxToVw(258);
+}
+
+#footer {
+  padding: pxToVw(110) 0 pxToVw(35) 0;
+  text-align: center;
 }
