@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My website portfolio created by using [ReactJs](https://reactjs.org). \r ## Features\r - [x] 100% responsive\r - [x] Dark and light mode\r - [x] Smooth scroll\r - [x] Multi-language\r - [x] Link to all the project and GitHub repository",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TorisutanKholwes/Portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TorisutanKholwes/Portfolio/issues"
+  },
+  "homepage": "https://github.com/TorisutanKholwes/Portfolio#readme",
+  "dependencies": {
+    "parcel": "^2.8.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3"
+  }
+}
