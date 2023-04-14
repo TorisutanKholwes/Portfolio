@@ -47,9 +47,29 @@ function vhToPx(vh, width) {
     return (vh / 100) * width;
 }
 
+function isGood(carrousel, slide) {
+    if (slide % 10 !== 0) {
+        for (let i = 1; i < 10; i++) {
+            if ((slide - i) % 10 === 0) {
+                slide -= i
+                break
+            }
+        }
+    }
+    if (carrousel % 10 !== 0) {
+        for (let i = 1; i < 10; i++) {
+            if ((carrousel - i) % 10 === 0) {
+                carrousel -= i
+                break
+            }
+        }
+    }
+    return carrousel % slide !== 0;
+}
+
 nextBtn.addEventListener("click", () => {
-    const slideWith = slide.clientWidth;
-    if (carrousel_container.scrollLeft % slideWith !== 0) return
+    let slideWith = slide.clientWidth;
+    if (isGood(carrousel_container.scrollLeft, slideWith)) return
     carrousel_container.scrollLeft += slideWith;
     if (carrousel_container.scrollLeft + slideWith >= (numSlides-1) * slideWith) {
         nextBtn.src = nextActif
@@ -61,9 +81,8 @@ nextBtn.addEventListener("click", () => {
 })
 
 prevBtn.addEventListener("click", () => {
-    const slideWith = slide.clientWidth;
-    if (carrousel_container.scrollLeft % slideWith !== 0) return
-
+    let slideWith = slide.clientWidth;
+    if (isGood(carrousel_container.scrollLeft, slideWith)) return
     carrousel_container.scrollLeft -= slideWith;
     if (carrousel_container.scrollLeft - slideWith <= 0) {
         nextBtn.src = nextHover
