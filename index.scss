@@ -5,8 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 // Functions
-@function pxToVw($px) {
-  $vw: (math.div($px, 1920)) * 100vw;
+@function pxToVw($px, $mobile: false) {
+  $divNum: 1920;
+  @if $mobile {
+    $divNum: 360;
+  }
+  $vw: (math.div($px, $divNum)) * 100vw;
   @return $vw;
 }
 
@@ -15,14 +19,19 @@
   @return $px;
 }
 
-@function responsive($desktop, $mobile) {
-  $desktop: pxToVw($desktop);
-  $mobile: pxToVw($mobile);
-  @if (max-width: 480px) {
-    @return #{$mobile};
-  } @else {
-    @return #{$desktop};
+@mixin responsive($property, $desktop, $mobile) {
+  @media only screen and (max-width: 720px) {
+    #{$property}: #{pxToVw($mobile, true)};
   }
+  @media only screen and (min-width: 900px) {
+    #{$property}: #{pxToVw($desktop)};
+  }
+}
+
+@mixin toMobile($property, $size) {
+    @media only screen and (max-width: 720px) {
+        #{$property}: #{pxToVw($size, true)};
+    }
 }
 
 // Set color variables
@@ -72,14 +81,18 @@ body {
 
 h1 {
   font-weight: 700;
-  font-size: pxToVw(48);
+  //font-size: pxToVw(48);
+  @include responsive(font-size, 48, 36);
+  @include toMobile(margin-top, 5);
+  @include toMobile(margin-bottom, 5);
   color: var(--midnight);
   text-align: center;
 }
 
 h2 {
   font-weight: 500;
-  font-size: pxToVw(24);
+  //font-size: pxToVw(24);
+  @include responsive(font-size, 24, 16);
   color: var(--rhythm);
   text-align: center;
   margin: 0;
@@ -88,7 +101,8 @@ h2 {
 
 h3 {
   position: relative;
-  font-size: pxToVw(96);
+  //font-size: pxToVw(96);
+  @include responsive(font-size, 96, 40);
   font-weight: 700;
   color: var(--bright_gray);
   display: flex;
@@ -102,7 +116,8 @@ h3 {
     top: 56.94%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: pxToVw(32);
+    //font-size: pxToVw(32);
+    @include responsive(font-size, 32, 16);
     font-weight: 500;
     color: var(--midnight);
   }
@@ -110,7 +125,8 @@ h3 {
 
 h4 {
   font-weight: 600;
-  font-size: pxToVw(20);
+  //font-size: pxToVw(20);
+  @include responsive(font-size, 20, 20);
   text-align: center;
   color: var(--rhythm);
   margin: 0;
@@ -118,13 +134,15 @@ h4 {
 
 p {
   font-weight: 400;
-  font-size: pxToVw(16);
+  //font-size: pxToVw(16);
+  @include responsive(font-size, 16, 16);
   color: var(--rhythm);
 }
 
 a {
   font-weight: 600;
-  font-size: pxToVw(16);
+  //font-size: pxToVw(16);
+  @include responsive(font-size, 16, 16);
   color: var(--orange);
   text-decoration: none;
 
@@ -142,12 +160,16 @@ li {
 button {
   background: linear-gradient(90deg, var(--macaroni_and_cheese) 0%, var(--orange) 107.94%);
   border: none;
-  border-radius: pxToVw(15);
-  width: pxToVw(170);
-  height: pxToVw(50);
+  //border-radius: pxToVw(15);
+  @include responsive(border-radius, 15, 10);
+  //width: pxToVw(170);
+  @include responsive(width, 170, 320);
+  //height: pxToVw(50);
+  @include responsive(height, 50, 50);
   color: white;
   font-weight: 600;
-  font-size: pxToVw(16);
+  //font-size: pxToVw(16);
+  @include responsive(font-size, 16, 16);
   text-align: center;
 
   &:hover {
@@ -164,19 +186,27 @@ input {
   box-sizing: border-box;
   border: 1px solid var(--lavender_gray);
   background: var(--white);
-  width: pxToVw(560);
-  height: pxToVw(60);
-  border-radius: 10px;
+  //width: pxToVw(560);
+  @include responsive(width, 560, 320);
+  //height: pxToVw(60);
+  @include responsive(height, 60, 50);
+  //border-radius: 10px;
+  @include responsive(border-radius, 10, 10);
   padding: pxToVw(15) pxToVw(20);
+  @media only screen and (max-width: 768px) {
+    padding: pxToVw(15, true) pxToVw(20, true);
+  }
   color: var(--rhythm);
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: pxToVw(16);
+  //font-size: pxToVw(16);
+  @include responsive(font-size, 16, 16);
 
   &::placeholder {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: pxToVw(16);
+    //font-size: pxToVw(16);
+    @include responsive(font-size, 16, 16);
     color: var(--lavender_gray);
   }
 
@@ -188,7 +218,8 @@ input {
 
 textarea {
   @extend input;
-  height: pxToVw(200);
+  //height: pxToVw(200);
+  @include responsive(height, 200, 200);
   resize: none;
 }
 
@@ -214,8 +245,10 @@ header {
 
 // Header styles
 #sun {
-  padding-left: pxToVw(20);
-  padding-top: pxToVw(20);
+  //padding-left: pxToVw(20);
+  @include responsive(padding-left, 20, 12);
+  //padding-top: pxToVw(20);
+  @include responsive(padding-top, 20, 12);
   width: pxToVw(100);
   margin-right: pxToVw(1140);
   z-index: 10;
@@ -226,10 +259,14 @@ header {
   &::before {
     content: '';
     position: absolute;
-    top: responsive(-100, -60);
-    left: responsive(-100, -60);
-    width: responsive(200, 120);
-    height: responsive(200, 120);
+    //top: responsive(-100, -60);
+    @include responsive(top, -100, -60);
+    //left: responsive(-100, -60);
+    @include responsive(left, -100, -60);
+    //width: responsive(200, 120);
+    @include responsive(width, 200, 120);
+    //height: responsive(200, 120);
+    @include responsive(height, 200, 120);
     background-color: var(--banana_mania);
     [data-theme="dark"] & {
       background-color: var(--white);
@@ -239,13 +276,14 @@ header {
     overflow: hidden;
   }
   & img {
-    width: pxToVw(42);
-    height: pxToVw(42);
+    //width: pxToVw(42);
+    @include responsive(width, 42, 27);
+    //height: pxToVw(42);
+    @include responsive(height, 42, 27);
   }
 }
 
 #title {
-    //width: vwToPx(327.53, 1211);
   opacity: 0;
   transform: translateX(pxToVw(-200));
   transition: transform 2s ease, opacity 2s ease;
@@ -257,6 +295,9 @@ header {
 }
 
 #tab-nav {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
   display: flex;
     //align-items: center;
   justify-content: flex-end;
@@ -392,11 +433,13 @@ header {
 
 #name {
   text-align: center;
+  @include toMobile(padding-top, 50);
 }
 
 #logo {
   width: auto;
-  height: pxToVw(100);
+  //height: pxToVw(100);
+  @include responsive(height, 100, 60);
   opacity: 0;
   transform: translateY(pxToVw(-100));
   transition: transform 2s ease, opacity .8s ease;
@@ -411,7 +454,7 @@ header {
   opacity: 0;
   transform: translateY(pxToVw(50));
   transition: transform 2s ease, opacity 1s ease;
-
+  @include toMobile(padding-top, 0);
   &.anim {
     transform: translateY(0);
     opacity: 1;
@@ -421,7 +464,8 @@ header {
   // Profile styles
 
 .section {
-  padding-top: pxToVw(100);
+  //padding-top: pxToVw(100);
+  @include responsive(padding-top, 100, 60);
 }
 
 #profile {
@@ -430,10 +474,17 @@ header {
 }
 
 #profile-picture {
-  width: pxToVw(260);
+  //width: pxToVw(260);
+  @include responsive(width, 260, 200);
   height: auto;
   border-radius: 50%;
   margin-right: pxToVw(40);
+  @media only screen and (max-width: 768px) {
+    padding-top: pxToVw(30, true);
+    padding-bottom: pxToVw(30, true);
+    display: block;
+    margin: auto;
+  }
   opacity: 0;
   transform: translateX(pxToVw(-250));
   transition: transform 2s ease, opacity .2s ease;
@@ -445,10 +496,19 @@ header {
 }
 
 #description {
-  width: pxToVw(860);
+  //width: pxToVw(860);
+  @include responsive(width, 860, 320);
+  @media only screen and (max-width: 768px) {
+    display: block;
+    margin: auto;
+    padding-bottom: pxToVw(30, true);
+  }
 }
 
 #profiledesc {
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -457,23 +517,36 @@ header {
 
 .code {
   background: var(--bright_gray);
-  border-radius: pxToVw(10);
-  width: pxToVw(178);
+  //border-radius: pxToVw(10);
+  @include responsive(border-radius, 10, 10);
+  //width: pxToVw(178);
+  @include responsive(width, 178, 178);
+  @include responsive(height, 102, 102);
   text-align: center;
 
+
   & > img {
-    padding-top: pxToVw(10);
-    width: pxToVw(42);
+    //padding-top: pxToVw(10);
+    @include responsive(padding-top, 10, 10);
+    //width: pxToVw(42);
+    @include responsive(width, 42, 42);
     height: auto;
   }
 
   & > h4 {
-    padding-bottom: pxToVw(10);
+    //padding-bottom: pxToVw(10);
+    @include responsive(padding-bottom, 10, 10);
   }
 
   & ~ p {
     text-align: center;
-    width: pxToVw(320);
+    //width: pxToVw(320);
+    @include responsive(width, 320, 320);
+    @media only screen and (max-width: 768px) {
+      display: block;
+      margin: auto;
+      padding-top: pxToVw(20, true);
+    }
   }
 }
 
@@ -481,16 +554,28 @@ header {
   margin-left: 22%;
 }
 
+.time {
+    @media only screen and (max-width: 768px) {
+      padding: 0 0 pxToVw(30, true);
+    }
+}
+
 #all-time {
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
   display: flex;
 
   & div {
-    margin: 0 pxToVw(75)
+    margin: 0 pxToVw(75);
+    @media only screen and (max-width: 768px) {
+      display: block;
+      margin: auto;
+    }
   }
 }
 
-  // Skills styles
-
+// Skills styles
 @for $i from 0 through 101 {
   @if $i % 5 == 0 {
     .w#{$i} {
@@ -506,80 +591,123 @@ header {
 
 .progress-skill {
   background-color: var(--bright_gray);
-  border-radius: pxToVw(15);
-  width: pxToVw(498);
-  height: pxToVw(10);
+  //border-radius: pxToVw(15);
+  @include responsive(border-radius, 15, 34);
+  //width: pxToVw(498);
+  @include responsive(width, 498, 258);
+  //height: pxToVw(10);
+  @include responsive(height, 10, 10);
 }
 
 .skill-bar {
   background-color: var(--blue);
-  height: pxToVw(10);
+  //height: pxToVw(10);
+  @include responsive(height, 10, 10);
   text-align: right;
 
-  & p {
-    color: white;
-    padding-right: pxToVw(10);
-  }
 
-  border-radius: pxToVw(15);
+  //border-radius: pxToVw(15);
+  @include responsive(border-radius, 15, 34);
 }
 
 .skill-name {
   font-weight: 600;
-  font-size: pxToVw(16);
+  //font-size: pxToVw(16);
+  @include responsive(font-size, 16, 16);
 }
 
 .language-info {
   display: flex;
   justify-content: space-between;
-  width: pxToVw(498);
+  //width: pxToVw(498);
+  @include responsive(width, 498, 258);
 
   & p {
-    margin: 0 0 pxToVw(6);
+    margin: 0;
+    @include responsive(margin-bottom, 6, 6);
   }
 }
 
 .language-img {
-  width: pxToVw(42);
-  height: pxToVw(42);
-  margin-right: pxToVw(20);
+  //width: pxToVw(42);
+  @include responsive(width, 42, 42);
+  //height: pxToVw(42);
+  @include responsive(height, 42, 42);
+  //margin-right: pxToVw(20);
+  @include responsive(margin-right, 20, 20);
 }
 
 .language-skill {
   display: flex;
   align-items: center;
-  padding-bottom: pxToVw(50);
-  width: pxToVw(560);
+  @media only screen and (max-width: 768px) {
+    margin: auto;
+  }
+  //padding-bottom: pxToVw(50);
+  @include responsive(padding-bottom, 50, 50);
+  //width: pxToVw(560);
+  @include responsive(width, 560, 320);
 }
 
 .all-skill {
+  @media only screen and (max-width: 768px) {
+    display: block;
+    margin: auto;
+    padding-top: pxToVw(30, true);
+  }
   display: grid;
   grid-template-columns: pxToVw(558) pxToVw(558);
   grid-column-gap: pxToVw(40);
   justify-content: center;
 }
 
-  // Projects styles
+// Projects styles
 .project-img {
-  width: pxToVw(560);
-  height: pxToVw(385);
-  border-radius: pxToVw(15);
-  margin-right: pxToVw(40);
+  //width: pxToVw(560);
+  @include responsive(width, 560, 320);
+  //height: pxToVw(385);
+  @include responsive(height, 385, 220);
+  //border-radius: pxToVw(15);
+  @include responsive(border-radius, 15, 15);
+  //margin-right: pxToVw(40);
+  @include responsive(margin-right, 40, 0);
+  @media only screen and (max-width: 768px) {
+    margin-bottom: pxToVw(30, true);
+  }
 }
 
 .project {
-  width: pxToVw(1160);
+  //width: pxToVw(1160);
+  @include responsive(width, 1160, 320);
   height: 100%;
   display: flex;
   flex: 1 0 100%;
   margin: auto;
+  @media only screen and (max-width: 768px) {
+    display: block;
+    margin: auto;
+  }
 }
 
 .project-button {
-  margin-top: pxToVw(30);
+  //margin-top: pxToVw(30);
+  @include responsive(margin-top, 30, 30);
+}
+
+.arrow-container {
+  @media only screen and (max-width: 768px) {
+    display: block;
+    margin: auto;
+    padding-left: pxToVw(15, true);
+    padding-top: pxToVw(30, true);
+  }
 }
 
 #projects {
+  @media only screen and (max-width: 768px) {
+    display: block;
+    padding-top: pxToVw(30, true);
+  }
   display: flex;
   justify-content: center;
   align-items: end;
@@ -587,8 +715,18 @@ header {
 
 .arrow {
   padding: 0 pxToVw(20);
-  width: pxToVw(50);
-  height: pxToVw(50);
+  @media only screen and (max-width: 768px) {
+    &#arrow-left {
+      padding-right: pxToVw(110, true);
+    }
+    &#arrow-right {
+      padding-left: pxToVw(110, true);
+    }
+  }
+  //width: pxToVw(50);
+  @include responsive(width, 50, 50);
+  //height: pxToVw(50);
+  @include responsive(height, 50, 50);
   cursor: pointer;
 
   &:hover {
@@ -600,10 +738,14 @@ header {
 .carrousel-wrapper {
   position: relative;
   overflow: hidden;
+  @media only screen and (max-width: 768px) {
+    padding-left: pxToVw(20, true);
+  }
 }
 
 #project-carrousel {
-  width: pxToVw(1160);
+  //width: pxToVw(1160);
+  @include responsive(width, 1160, 320);
   display: flex;
   margin: 0;
   padding: 0;
@@ -618,13 +760,19 @@ header {
 }
 
 .project-description {
-  width: pxToVw(560);
-  height: pxToVw(150);
+  //width: pxToVw(560);
+  @include responsive(width, 560, 320);
+  //height: pxToVw(150);
+  //@include responsive(height, 150, 240);
+  height: auto;
 }
 
 // Software styles
 .stars img {
   padding-right: pxToVw(10);
+  @include responsive(width, 20, 20);
+  @include responsive(height, 19, 19);
+
 }
 
 .filled {
@@ -635,48 +783,95 @@ header {
   margin: auto;
   border-collapse: collapse;
   border-radius: pxToVw(10) pxToVw(10) 0 0;
+  @media only screen and (max-width: 768px) {
+    border-top-left-radius: pxToVw(10, true);
+    border-top-right-radius: pxToVw(10, true);
+  }
   overflow: hidden;
-  width: pxToVw(1160);
+  //width: pxToVw(1160);
+  @include responsive(width, 1160, 742);
   text-align: center;
 
   & thead {
     background: var(--bright_gray);
-    height: pxToVw(59);
+    //height: pxToVw(59);
+    @include responsive(height, 59, 59);
 
     & th {
       color: var(--rhythm);
       font-weight: 400;
-      font-size: pxToVw(16);
+      //font-size: pxToVw(16);
+      @include responsive(font-size, 16, 16);
     }
   }
 
   & tbody {
     & td {
       font-weight: 600;
-      font-size: pxToVw(16);
+      //font-size: pxToVw(16);
+      @include responsive(font-size, 16, 16);
       color: var(--rhythm);
       padding: pxToVw(16) 0;
+      @media only screen and (max-width: 768px) {
+        padding: pxToVw(16, true) 0;
+      }
       border-bottom: solid pxToVw(1) var(--lavender_gray);
+      .logo-img {
+        @include responsive(width, 42, 42);
+      }
+    }
+  }
+}
+
+#table-container {
+  @media only screen and (max-width: 768px) {
+    padding-top: pxToVw(30, true);
+    padding-left: pxToVw(20, true);
+    width: pxToVw(340, true);
+    overflow: scroll;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 }
 
 // Contact styles
 #contact-element {
+  @media only screen and (max-width: 768px) {
+    display: block;
+    padding-top: pxToVw(30, true);
+  }
   display: flex;
   justify-content: center;
 }
 
 #social_text {
-  width: pxToVw(560);
+  //width: pxToVw(560);
+  @include responsive(width, 560, 320);
+  @media only screen and (max-width: 768px) {
+    margin: auto;
+  }
 }
 
 #social-description {
   padding-right: pxToVw(40);
+  @media only screen and (max-width: 768px) {
+    padding-right: 0;
+  }
 }
 
 .form-input {
-  padding-bottom: pxToVw(30);
+  //padding-bottom: pxToVw(30);
+  @include responsive(padding-bottom, 30, 30);
+  @media only screen and (max-width: 768px) {
+    width: max-content;
+    margin: auto;
+  }
 
   & input.error {
     border: 1px solid var(--orange);
@@ -685,6 +880,9 @@ header {
   & p {
     display: none;
     margin: pxToVw(10) 0 0 0;
+    @media only screen and (max-width: 768px) {
+      margin: pxToVw(10, true) 0 0 0;
+    }
 
     &.show {
       display: block;
@@ -695,7 +893,11 @@ header {
 
 #send-message {
   padding-top: pxToVw(-15);
-  width: pxToVw(258);
+  //width: pxToVw(258);
+  @include responsive(width, 258, 340);
+  @media only screen and (max-width: 768px) {
+    margin-left: pxToVw(10, true);
+  }
 }
 
 #footer-text {
@@ -704,10 +906,21 @@ header {
 }
 
 .social-img {
-  width: pxToVw(42);
-  height: pxToVw(42);
-  padding-right: pxToVw(30);
+  //width: pxToVw(42);
+  @include responsive(width, 42, 42);
+  //height: pxToVw(42);
+  @include responsive(height, 42, 42);
+  //padding-right: pxToVw(30);
+  @include responsive(padding-right, 30, 30);
   cursor: pointer;
+}
+
+#social-network {
+  @media only screen and (max-width: 768px) {
+    width: max-content;
+    margin: auto;
+    padding: pxToVw(30, true) 0;
+  }
 }
 
 // Background element (aled)

@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"2V1yg":[function(require,module,exports) {
+})({"77IDL":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -570,10 +570,10 @@ const numSlides = document.querySelectorAll(".project").length;
 const nextBtn = document.getElementById("arrow-right");
 const prevBtn = document.getElementById("arrow-left");
 const redirectButton = document.querySelectorAll(".project-button");
-const nextActif = new URL(require("91f6845bf1b9f76f"));
-const prevActif = new URL(require("1fdd1c198e301d10"));
-const nextHover = new URL(require("9cef54bafad3db9d"));
-const prevHover = new URL(require("66a39b11da4766a5"));
+const nextActif = new URL(require("ad33df646c140d1c"));
+const prevActif = new URL(require("415ae6cb19e139dc"));
+const nextHover = new URL(require("2874858296dbb2ae"));
+const prevHover = new URL(require("1e10f3d0bda6ee26"));
 const sun = document.getElementById("sun");
 const langList = [
     "FR",
@@ -771,7 +771,7 @@ for(let i = 0; i < animElemSection.length; i++){
     observer.observe(element);
 }
 
-},{"./assets/langs/fr.json":"k2KFO","./assets/langs/en.json":"cFDQy","./assets/langs/es.json":"8q2U5","91f6845bf1b9f76f":"5JT5t","1fdd1c198e301d10":"kZWPF","9cef54bafad3db9d":"k6ib3","66a39b11da4766a5":"b9oTR","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"k2KFO":[function(require,module,exports) {
+},{"./assets/langs/fr.json":"k2KFO","./assets/langs/en.json":"cFDQy","./assets/langs/es.json":"8q2U5","ad33df646c140d1c":"4RlJK","415ae6cb19e139dc":"5m9L2","2874858296dbb2ae":"koWzv","1e10f3d0bda6ee26":"cgivZ","@parcel/transformer-js/src/esmodule-helpers.js":"5KLut"}],"k2KFO":[function(require,module,exports) {
 module.exports = JSON.parse('{"profile":"Profil","skills":"Comp\xe9tences","projects":"Projets","software":"Logiciels","contact":"Contact","title":"Salut, je suis Tristan !","subtitle":"Un d\xe9veloppeur <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> et <span class=\\"devtype\\">Web</span>","profileDescription":"Je suis Tristan Clowez, un d\xe9veloppeur informatique de 17 ans, passionn\xe9 et avec 4 ans d\'exp\xe9rience. Mon expertise inclut les langages Java, Python et les technologies front-end (HTML, CSS, JavaScript). J\'utilise aussi NodeJS pour le back-end. J\'\xe9tudie en terminale avec comme sp\xe9cialisation en NSI et en math\xe9matiques, et mon objectif est d\'int\xe9grer un cycle ing\xe9nieur apr\xe8s mon bac. Venez d\xe9couvrir mes projets et comp\xe9tences en d\xe9veloppement !","totalCodeTime":"Nombre d\'heures de code depuis F\xe9vrier 2021 :","averageCodeTime":"Nombre d\'heures de code par jour en moyenne depuis F\xe9vrier 2021 :","portfolioDescription":"Le site sur lequel vous vous trouvez ! Enti\xe8rement developp\xe9 en vanilla JS et SCSS, il est responsive et est disponible dans 3 langues (Fran\xe7ais, Anglais et Espagnol). Il est une refonte de mon premier site, qui \xe9tait en React avec un nouveau design. Il est h\xe9berg\xe9 sur Vercel.","portfolioLanguages":"Langage utilis\xe9 : <strong>HTML</strong>, <strong>SCSS</strong> et <strong>JS</strong>","seeProject":"Voir le projet","javawarsDescription":"Un projet r\xe9alis\xe9 en Java permettant une utilis\xe9 simplifi\xe9 de l\'API de Guild Wars 2. Guild Wars 2 est un MMORPG sortie en 2012 et une API est disponible pour les d\xe9veloppeurs. Ce projet contient de nombreuses classes permenttant une meilleure utilisation de l\'API avec des commentaires (Projet en cours de d\xe9veloppement) ","javawarsLanguages":"Langages utilis\xe9s : <strong>Java</strong>","softwareLogo":"Logo","softwareName":"Titre","softwareCompany":"Entreprise","softwareTimeUse":"Taux d\'utilisation","softwareLink":"Lien","socialText":"Passionn\xe9 de d\xe9veloppement, je mets mon expertise \xe0 votre disposition pour cr\xe9er des solutions digitales innovantes et sur mesure. Mon engagement envers la qualit\xe9, la cr\xe9ativit\xe9 et l\'excellence vous garantit des r\xe9sultats qui r\xe9pondent \xe0 vos besoins et vous aident \xe0 atteindre vos objectifs.","inputNamePlaceholder":"Nom*","inputNameError":"*Le nom est obligatoire","inputEmailPlaceholder":"Email*","inputEmailError":"*L\'email est obligatoire","inputSubjectPlaceholder":"Sujet*","inputSubjectError":"*Le sujet est obligatoire","inputSendMessage":"Envoyer le message"}');
 
 },{}],"cFDQy":[function(require,module,exports) {
@@ -780,10 +780,10 @@ module.exports = JSON.parse('{"profile":"Profile","skills":"Skills","projects":"
 },{}],"8q2U5":[function(require,module,exports) {
 module.exports = JSON.parse('{"profile":"Perfil","skills":"Habilidades","projects":"Proyectos","software":"Software","contact":"Contacto","title":"\xa1Hola, soy Tristan!","subtitle":"Un desarrollador <span class=\\"devtype\\">Java</span>, <span class=\\"devtype\\">Python</span> y <span class=\\"devtype\\">Web</span>","profileDescription":"Soy Tristan Clowez, un desarrollador inform\xe1tico de 17 a\xf1os, apasionado y con 4 a\xf1os de experiencia. Mi experiencia incluye los lenguajes de programaci\xf3n Java y Python, as\xed como tecnolog\xedas front-end (HTML, CSS, JavaScript). Tambi\xe9n uso NodeJS para el desarrollo de back-end. Actualmente estoy en mi \xfaltimo a\xf1o de escuela secundaria con una especializaci\xf3n en Ciencias de la Computaci\xf3n y Matem\xe1ticas, y mi objetivo es obtener un t\xedtulo de ingenier\xeda despu\xe9s de graduarme. \xa1Ven a descubrir mis proyectos y habilidades en desarrollo!","totalCodeTime":"Horas totales de c\xf3digo desde febrero de 2021:","averageCodeTime":"Horas promedio de c\xf3digo por d\xeda desde febrero de 2021:","portfolioDescription":"\xa1El sitio web en el que te encuentras actualmente! Ha sido completamente desarrollado utilizando vanilla JS y SCSS, y es responsive y est\xe1 disponible en tres idiomas (franc\xe9s, ingl\xe9s y espa\xf1ol). Es una renovaci\xf3n de mi primer sitio web, que fue construido con React y tiene un nuevo dise\xf1o. Est\xe1 alojado en Vercel.","portfolioLanguages":"Idiomas utilizados: <strong>HTML</strong>, <strong>SCSS</strong> y <strong>JS</strong>","seeProject":"Ver proyecto","javawarsDescription":"Un proyecto realizado en Java que simplifica el uso de la API de Guild Wars 2. Guild Wars 2 es un MMORPG lanzado en 2012, y una API est\xe1 disponible para los desarrolladores. Este proyecto contiene numerosas clases para un mejor uso de la API con comentarios (Trabajo en progreso).","javawarsLanguages":"Idiomas utilizados: <strong>Java</strong>","softwareLogo":"Logo","softwareName":"T\xedtulo","softwareCompany":"Empresa","softwareTimeUse":"Tasa de uso","softwareLink":"Enlace","socialText":"Apasionado por el desarrollo, pongo mi experiencia a su disposici\xf3n para crear soluciones digitales innovadoras y personalizadas. Mi compromiso con la calidad, la creatividad y la excelencia garantiza resultados que satisfacen sus necesidades y lo ayudan a alcanzar sus objetivos.","inputNamePlaceholder":"Nombre*","inputNameError":"*El nombre es obligatorio","inputEmailPlaceholder":"Email*","inputEmailError":"*El correo electr\xf3nico es obligatorio","inputSubjectPlaceholder":"Asunto*","inputSubjectError":"*El asunto es obligatorio","inputSendMessage":"Enviar mensaje"}');
 
-},{}],"5JT5t":[function(require,module,exports) {
-module.exports = require("e68925a3a7526e03").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
+},{}],"4RlJK":[function(require,module,exports) {
+module.exports = require("dc7bd749ba8fa81b").getBundleURL("UckoE") + "arrowRightActif.5430a446.svg" + "?" + Date.now();
 
-},{"e68925a3a7526e03":"jMDco"}],"jMDco":[function(require,module,exports) {
+},{"dc7bd749ba8fa81b":"he98u"}],"he98u":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -817,16 +817,16 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"kZWPF":[function(require,module,exports) {
-module.exports = require("965bda89343b7fab").getBundleURL("UckoE") + "arrowLeftActif.b99280bc.svg" + "?" + Date.now();
+},{}],"5m9L2":[function(require,module,exports) {
+module.exports = require("db97c75acb09be3d").getBundleURL("UckoE") + "arrowLeftActif.b99280bc.svg" + "?" + Date.now();
 
-},{"965bda89343b7fab":"jMDco"}],"k6ib3":[function(require,module,exports) {
-module.exports = require("2aa77dd159a69a3e").getBundleURL("UckoE") + "arrowRightHover.8ca0ee8b.svg" + "?" + Date.now();
+},{"db97c75acb09be3d":"he98u"}],"koWzv":[function(require,module,exports) {
+module.exports = require("33d76bafa93b482f").getBundleURL("UckoE") + "arrowRightHover.8ca0ee8b.svg" + "?" + Date.now();
 
-},{"2aa77dd159a69a3e":"jMDco"}],"b9oTR":[function(require,module,exports) {
-module.exports = require("c06ec36f129e79a").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
+},{"33d76bafa93b482f":"he98u"}],"cgivZ":[function(require,module,exports) {
+module.exports = require("3cdef18743ffd8db").getBundleURL("UckoE") + "arrowLeftHover.a5ef33dd.svg" + "?" + Date.now();
 
-},{"c06ec36f129e79a":"jMDco"}],"fD7H8":[function(require,module,exports) {
+},{"3cdef18743ffd8db":"he98u"}],"5KLut":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -856,6 +856,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["2V1yg","bB7Pu"], "bB7Pu", "parcelRequire94c2")
+},{}]},["77IDL","bB7Pu"], "bB7Pu", "parcelRequire94c2")
 
 //# sourceMappingURL=index.3d214d75.js.map
