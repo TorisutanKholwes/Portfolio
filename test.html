@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        #test {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: #D2D7FF;
-            filter: blur(20px);
-        }
-    </style>
 </head>
 <body>
-    <div id="test"></div>
+    <p id="test"></p>
+
+    <script>
+        var test = document.getElementById("test");
+        test.innerHTML = window.innerWidth;
+    </script>
 </body>
 </html>

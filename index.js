@@ -152,10 +152,8 @@ for (let i = 0; i < langChange.length; i++) {
 }
 
 function changeLang(lang) {
-    // Get all elements that have text content
     const elements = document.querySelectorAll('*:not(script):not(style):not(br):not(hr):not(img):not(input):not(textarea):not(select):not(option):not(canvas):not(svg):not(path):not(linearGradient):not(radialGradient):not(stop):not(mask):not(symbol):not(use):not(iframe):not(video):not(audio)');
 
-    // Loop through each element and replace its text with its translation
     elements.forEach((element) => {
         const text = element.textContent.trim();
         if (element.children.length > 0) return;
@@ -197,9 +195,9 @@ const animElemClass = ["skill-bar"]
 const animElemSection = ["profile", "skill", "project", "software", "contact", "footer"]
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) (
+        if (entry.isIntersecting) {
             entry.target.classList.add("anim")
-        )
+        }
     })
 })
 
@@ -213,3 +211,9 @@ for (let i = 0; i < animElemSection.length; i++) {
     let element = document.querySelector(`#${animElemSection[i]}`)
     observer.observe(element)
 }
+
+setTimeout(() => {
+    console.log("inner " + window.innerWidth)
+    console.log("Outer " + window.outerWidth)
+    console.log(window.innerWidth / window.outerWidth)
+}, 2001)
