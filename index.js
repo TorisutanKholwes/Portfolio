@@ -211,9 +211,3 @@ for (let i = 0; i < animElemSection.length; i++) {
     let element = document.querySelector(`#${animElemSection[i]}`)
     observer.observe(element)
 }
-
-setTimeout(() => {
-    console.log("inner " + window.innerWidth)
-    console.log("Outer " + window.outerWidth)
-    console.log(window.innerWidth / window.outerWidth)
-}, 2001)
