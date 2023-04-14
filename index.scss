@@ -23,7 +23,7 @@
   @media only screen and (max-width: 720px) {
     #{$property}: #{pxToVw($mobile, true)};
   }
-  @media only screen and (min-width: 900px) {
+  @media only screen and (min-width: 768px) {
     #{$property}: #{pxToVw($desktop)};
   }
 }
@@ -295,14 +295,16 @@ header {
 }
 
 #tab-nav {
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
   display: flex;
     //align-items: center;
   justify-content: flex-end;
 
   li {
+    &:not(:last-child){
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
+    }
     cursor: pointer;
     margin-right: pxToVw(40);
     display: inline-flex;
@@ -338,7 +340,8 @@ header {
 
 .languages {
   font-weight: 500;
-  font-size: pxToVw(20);
+  //font-size: pxToVw(20);
+  @include responsive(font-size, 20, 16);
   color: var(--lavender_gray);
 
   [data-theme="dark"] & {
@@ -367,8 +370,14 @@ header {
 #language {
   background: white;
   border-radius: 8px;
-  width: pxToVw(81);
+  //width: pxToVw(81);
+  @include responsive(width, 81, 42);
   margin-top: pxToVw(-10);
+  @media only screen and (max-width: 768px) {
+    position: absolute;
+    top: pxToVw(-50, true);
+    right: pxToVw(5, true);
+  }
 }
 
 #current-language {
@@ -378,8 +387,10 @@ header {
 }
 
 #chevron {
-  margin-left: pxToVw(10);
-  width: pxToVw(24);
+  //margin-left: pxToVw(10);
+  @include responsive(margin-left, 10, 0);
+  //width: pxToVw(24);
+  @include responsive(width, 24, 16);
   height: auto;
   transform: rotate(0deg);
   transition: transform 0.8s ease-in-out;
@@ -401,17 +412,22 @@ header {
 }
 
 #other-language {
-  max-height: pxToVw(81);
+  //max-height: pxToVw(81);
+  @include responsive(max-height, 81, 50);
   opacity: 1;
   transition: max-height 1s ease, opacity .2s ease-in-out .8s;
 
   &:after {
     content: '';
     position: absolute;
-    top: pxToVw(34);
-    left: pxToVw(12);
-    width: pxToVw(54);
-    height: pxToVw(2);
+    //top: pxToVw(34);
+    @include responsive(top, 34, 25);
+    //left: pxToVw(12);
+    @include responsive(left, 12, 3);
+    //width: pxToVw(54);
+    @include responsive(width, 54, 32);
+    //height: pxToVw(2);
+    @include responsive(height, 2, 1);
     background: var(--lavender_gray);
 
     [data-theme="dark"] & {
