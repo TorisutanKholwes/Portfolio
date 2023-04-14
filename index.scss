@@ -10,6 +10,11 @@
   @return $vw;
 }
 
+@function vwToPx($vw, $res) {
+  $px: math.div(($vw * 100), 100);
+  @return $px;
+}
+
 // Set color variables
 @mixin global-theme {
   --blue: #7784EE;
@@ -173,6 +178,16 @@ h4 {
    resize: none;
  }
 
+ #profile, #skill, #project, #software, #contact, #footer {
+   transform: translateY(pxToVw(100));
+   opacity: 0;
+   transition: transform 2s ease, opacity .8s ease;
+   &.anim {
+     transform: translateY(0);
+     opacity: 1;
+   }
+ }
+
 // Header styles
 .devtype {
   color: var(--blue);
@@ -211,6 +226,17 @@ header {
   & img {
     width: pxToVw(42);
     height: pxToVw(42);
+  }
+}
+
+#title {
+  //width: vwToPx(327.53, 1211);
+  opacity: 0;
+  transform: translateX(pxToVw(-200));
+  transition: transform 2s ease, opacity 2s ease;
+  &.anim {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -327,6 +353,16 @@ header {
   }
 }
 
+#tab-nav {
+  opacity: 0;
+  transform: translateX(pxToVw(250));
+  transition: transform 2s ease, opacity .8s ease;
+  &.anim {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 #name {
   text-align: center;
 }
@@ -334,6 +370,23 @@ header {
 #logo {
   width: auto;
   height: pxToVw(100);
+  opacity: 0;
+  transform: translateY(pxToVw(-100));
+  transition: transform 2s ease, opacity .8s ease;
+  &.anim {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#subtitle {
+  opacity: 0;
+  transform: translateY(pxToVw(50));
+  transition: transform 2s ease, opacity 1s ease;
+  &.anim {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 // Profile styles
@@ -351,7 +404,14 @@ header {
   width: pxToVw(260);
   height: auto;
   border-radius: 50%;
-  margin-right: pxToVw(40)
+  margin-right: pxToVw(40);
+  opacity: 0;
+  transform: translateX(pxToVw(-250));
+  transition: transform 2s ease, opacity .2s ease;
+  &.anim {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 #description {
@@ -398,6 +458,23 @@ header {
 }
 
 // Skills styles
+
+@for $i from 0 through 101 {
+  @if $i % 5 == 0 {
+    .w#{$i} {
+      width: 0;
+      transition: width 2s ease;
+      &.anim {
+        width: math.percentage(math.div($i, 100));
+      }
+    }
+  }
+}
+/*
+.w15 {
+  width: 15%;
+}
+
 .w40 {
   width: 40%;
 }
@@ -421,7 +498,7 @@ header {
 .w90 {
   width: 90%;
 }
-
+*/
 .progress-skill {
   background-color: var(--bright_gray);
   border-radius: pxToVw(15);
@@ -607,7 +684,7 @@ header {
   width: pxToVw(258);
 }
 
-#footer {
+#footer-text {
   padding: pxToVw(110) 0 pxToVw(35) 0;
   text-align: center;
 }
@@ -703,6 +780,5 @@ header {
   height: pxToVw(870);
   top: pxToVw(-372);
   left: pxToVw(1378);
-  overflow: hidden;
   float: right;
 }

@@ -1,3 +1,7 @@
+import fr from "./assets/langs/fr.json"
+import en from "./assets/langs/en.json"
+import es from "./assets/langs/es.json"
+
 const carrousel_container = document.getElementById("project-carrousel");
 const slide = document.querySelector(".project")
 const numSlides = document.querySelectorAll(".project").length;
@@ -20,10 +24,6 @@ const alltime = document.getElementById("all-time-code")
 const dailytime = document.getElementById("daily-code-time")
 
 const send_button = document.getElementById("send-message")
-
-import fr from "./assets/langs/fr.json"
-import en from "./assets/langs/en.json"
-import es from "./assets/langs/es.json"
 
 const scrollType = {
     "profile": 0,
@@ -128,6 +128,11 @@ window.addEventListener("DOMContentLoaded", () => {
             dailytime.innerText = timeToString(Math.floor(averageTime))
         },
     });
+    const animElemId = ["logo", "title", "subtitle", "tab-nav", "profile-picture"]
+    for (let i = 0; i < animElemId.length; i++) {
+        let id = animElemId[i];
+        document.getElementById(id).classList.add("anim")
+    }
 })
 
 sun.addEventListener("click", () => {
@@ -164,36 +169,47 @@ function changeLang(lang) {
 }
 
 send_button.addEventListener("click", () => {
-    let name = document.getElementById("form-name").value
-    if (name === "") {
-        document.getElementById("name-error").classList.add("show")
-        document.getElementById("form-name").classList.add("error")
-    } else if (name !== "" && document.getElementById("name-error").classList.contains("show")) {
-        document.getElementById("name-error").classList.remove("show")
-        document.getElementById("form-name").classList.remove("error")
+    const form_fields = ["name", "email", "subject"].map(id => document.getElementById(`form-${id}`))
+    const error_fields = ["name", "email", "subject"].map(id => document.getElementById(`${id}-error`))
+    let valid = true
+    for (let i = 0; i < form_fields.length; i++) {
+        const field = form_fields[i]
+        const error_field = error_fields[i]
+        const value = field.value.trim()
+        const hasError = value === ""
+        error_field.classList.toggle("show", hasError)
+        field.classList.toggle("error", hasError)
+        valid = valid && !hasError
     }
-    let email = document.getElementById("form-email").value
-    if (email === "") {
-        document.getElementById("email-error").classList.add("show")
-        document.getElementById("form-email").classList.add("error")
-    } else if (email !== "" && document.getElementById("email-error").classList.contains("show")) {
-        document.getElementById("email-error").classList.remove("show")
-        document.getElementById("form-email").classList.remove("error")
-    }
-    let message = document.getElementById("form-subject").value
-    if (message === "") {
-        document.getElementById("subject-error").classList.add("show")
-        document.getElementById("form-subject").classList.add("error")
-    } else if (message !== "" && document.getElementById("subject-error").classList.contains("show")) {
-        document.getElementById("subject-error").classList.remove("show")
-        document.getElementById("form-subject").classList.remove("error")
-    }
-    if (name === "" || email === "" || message === "") return
+    console.log(valid)
+    if (!valid) return
+    const [name_field, email_field, subject_field] = form_fields
     Email.send({
         SecureToken: "1d134f5b-cb02-4ca7-88d5-4186a58efed6",
         To: "tristanclowez@torisutan.tech",
-        From: email,
-        Subject: "Message du portfolio de : " + name,
-        Body: message
+        From: email_field.value,
+        Subject: "Message du portfolio de : " + name_field.value,
+        Body: subject_field.value.trim()
     })
 })
+
+const animElemClass = ["skill-bar"]
+const animElemSection = ["profile", "skill", "project", "software", "contact", "footer"]
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) (
+            entry.target.classList.add("anim")
+        )
+    })
+})
+
+for (let i = 0; i < animElemClass.length; i++) {
+    document.querySelectorAll(`.${animElemClass[i]}`).forEach(value => {
+        observer.observe(value)
+    })
+}
+
+for (let i = 0; i < animElemSection.length; i++) {
+    let element = document.querySelector(`#${animElemSection[i]}`)
+    observer.observe(element)
+}
