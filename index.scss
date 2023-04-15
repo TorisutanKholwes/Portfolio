@@ -341,7 +341,12 @@ header {
 .languages {
   font-weight: 500;
   //font-size: pxToVw(20);
-  @include responsive(font-size, 20, 16);
+  @include responsive(font-size, 20, 14);
+
+  @media only screen and (max-width: 768px) {
+      margin-left: pxToVw(8, true);
+  }
+
   color: var(--lavender_gray);
 
   [data-theme="dark"] & {
@@ -391,7 +396,9 @@ header {
   @include responsive(margin-left, 10, 0);
   //width: pxToVw(24);
   @include responsive(width, 24, 16);
-  height: auto;
+  //height: auto;
+  @include responsive(height, 24, 16);
+  @include responsive(margin-top, 13, 5);
   transform: rotate(0deg);
   transition: transform 0.8s ease-in-out;
 }
