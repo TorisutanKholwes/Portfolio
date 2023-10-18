@@ -6,7 +6,7 @@
   "contact": "Contact",
   "title": "Salut, je suis Tristan !",
   "subtitle": "Un développeur <span class=\"devtype\">Java</span>, <span class=\"devtype\">Python</span> et <span class=\"devtype\">Web</span>",
-  "profileDescription": "Je suis Tristan Clowez, un développeur informatique de 17 ans, passionné et avec 4 ans d'expérience. Mon expertise inclut les langages Java, Python et les technologies front-end (HTML, CSS, JavaScript). J'utilise aussi NodeJS pour le back-end. Je suis actuellement en première année de cycle préparatoire à l'ESIEA. Venez découvrir mes projets et compétences en développement !",
+  "profileDescription": "Je suis Tristan Clowez, un développeur informatique de 18 ans, passionné et avec 4 ans d'expérience. Mon expertise inclut les langages Java, Python et les technologies front-end (HTML, CSS, JavaScript). J'utilise aussi NodeJS pour le back-end. Je suis actuellement en première année de cycle préparatoire à l'ESIEA. Venez découvrir mes projets et compétences en développement !",
   "totalCodeTime": "Nombre d'heures de code depuis Février 2021 :",
   "averageCodeTime": "Nombre d'heures de code par jour en moyenne depuis Février 2021 :",
   "portfolioDescription": "Le site sur lequel vous vous trouvez ! Entièrement developpé en vanilla JS et SCSS, il est responsive et est disponible dans 3 langues (Français, Anglais et Espagnol). Il est une refonte de mon premier site, qui était en React avec un nouveau design. Il est hébergé sur Vercel.",
