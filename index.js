@@ -9,6 +9,8 @@ const nextBtn = document.getElementById("arrow-right")
 const prevBtn = document.getElementById("arrow-left")
 const redirectButton = document.querySelectorAll(".project-button")
 
+const coursesTab = document.getElementById("tab-courses")
+
 const nextActif = new URL("assets/arrow/arrowRightActif.svg", import.meta.url)
 const prevActif = new URL("assets/arrow/arrowLeftActif.svg", import.meta.url)
 const nextHover = new URL("assets/arrow/arrowRightHover.svg", import.meta.url)
@@ -32,6 +34,10 @@ const scrollType = {
     "software": 2400,
     "contact": 5000
 }
+
+import { inject } from '@vercel/analytics';
+
+inject();
 
 function pxToVh(px) {
     return (px / 1920) * 100;
@@ -92,6 +98,13 @@ prevBtn.addEventListener("click", () => {
         prevBtn.src = prevHover
     }
 })
+
+window.addEventListener("resize", () => {
+    carrousel_container.scrollLeft = 0
+    prevBtn.src = prevActif
+    nextBtn.src = nextHover
+})
+
 redirectButton.forEach(button => {
     button.addEventListener("click", () => {
         let url = button.getAttribute("redirect")
@@ -208,6 +221,11 @@ send_button.addEventListener("click", () => {
         Subject: "Message du portfolio de : " + name_field.value,
         Body: subject_field.value.trim()
     })
+})
+
+coursesTab.addEventListener("click", () => {
+    let url = "https://lessons.torisutan.live/"
+    window.open(url, "_blank")
 })
 
 const animElemClass = ["skill-bar"]

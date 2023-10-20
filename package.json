@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/TorisutanKholwes/Portfolio#readme",
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "parcel": "^2.10.0"
   },
   "devDependencies": {
