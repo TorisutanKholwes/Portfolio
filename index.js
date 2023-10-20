@@ -224,7 +224,7 @@ send_button.addEventListener("click", () => {
 })
 
 coursesTab.addEventListener("click", () => {
-    let url = "https://lessons.torisutan.live/"
+    let url = "https://courses.torisutan.live/"
     window.open(url, "_blank")
 })
 
