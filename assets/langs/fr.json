@@ -27,5 +27,7 @@
   "inputEmailError": "*L'email est obligatoire",
   "inputSubjectPlaceholder": "Sujet*",
   "inputSubjectError": "*Le sujet est obligatoire",
-  "inputSendMessage": "Envoyer le message"
+  "inputSendMessage": "Envoyer le message",
+  "successSendMessage": "Le message a été envoyé avec succès",
+  "errorSendMessage": "Une erreur est survenue lors de l'envoi du message"
 }

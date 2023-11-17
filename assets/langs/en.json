@@ -27,5 +27,7 @@
   "inputEmailError": "*Email is required",
   "inputSubjectPlaceholder": "Subject",
   "inputSubjectError": "*Subject is required",
-  "inputSendMessage": "Send message"
+  "inputSendMessage": "Send message",
+  "successSendMessage": "The message has been sent successfully",
+  "errorSendMessage": "An error has occurred while sending the message"
 }

@@ -923,6 +923,18 @@ header {
   }
 }
 
+#success-send-message, #error-send-message {
+  display: none;
+}
+
+#success-send-message {
+  color: var(--artichoke);
+}
+
+#error-send-message {
+  color: var(--orange);
+}
+
 #footer-text {
   padding: pxToVw(110) 0 pxToVw(35) 0;
   text-align: center;

@@ -27,5 +27,7 @@
   "inputEmailError": "*El correo electrónico es obligatorio",
   "inputSubjectPlaceholder": "Asunto*",
   "inputSubjectError": "*El asunto es obligatorio",
-  "inputSendMessage": "Enviar mensaje"
+  "inputSendMessage": "Enviar mensaje",
+  "successSendMessage": "El mensaje se ha enviado correctamente",
+  "errorSendMessage": "Se ha producido un error al enviar el mensaje"
 }

@@ -2,6 +2,8 @@ import fr from "./assets/langs/fr.json"
 import en from "./assets/langs/en.json"
 import es from "./assets/langs/es.json"
 
+import emailjs from '@emailjs/browser';
+
 const carrousel_container = document.getElementById("project-carrousel");
 const slide = document.querySelector(".project")
 const numSlides = document.querySelectorAll(".project").length;
@@ -211,16 +213,27 @@ send_button.addEventListener("click", () => {
         field.classList.toggle("error", hasError)
         valid = valid && !hasError
     }
-    console.log(valid)
     if (!valid) return
-    const [name_field, email_field, subject_field] = form_fields
-    Email.send({
-        SecureToken: "1d134f5b-cb02-4ca7-88d5-4186a58efed6",
-        To: "tristanclowez@torisutan.tech",
-        From: email_field.value,
-        Subject: "Message du portfolio de : " + name_field.value,
-        Body: subject_field.value.trim()
+    let param = {
+        "name": form_fields[0].value,
+        "email": form_fields[1].value,
+        "message": form_fields[2].value
+    }
+    emailjs.init("EB8AunJ3SQFowF7C9")
+    emailjs.send("service_kto8twb", "template_0k0pi8w", param).then(function (success) {
+        let elemSuccess = document.getElementById("success-send-message")
+        elemSuccess.style.display = "block"
+        setTimeout(() => {
+            elemSuccess.style.display = "none"
+        }, 5000)
+    }, function (error) {
+        let elemError = document.getElementById("error-send-message")
+        elemError.style.display = "block"
+        setTimeout(() => {
+            elemError.style.display = "none"
+        }, 5000)
     })
+
 })
 
 coursesTab.addEventListener("click", () => {
