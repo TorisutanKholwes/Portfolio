@@ -236,10 +236,10 @@ send_button.addEventListener("click", () => {
 
 })
 
-coursesTab.addEventListener("click", () => {
+/*coursesTab.addEventListener("click", () => {
     let url = "https://courses.torisutan.live/"
     window.open(url, "_blank")
-})
+})*/
 
 const animElemClass = ["skill-bar"]
 const animElemSection = ["profile", "skill", "project", "software", "contact", "footer"]
