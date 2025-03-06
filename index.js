@@ -200,7 +200,11 @@ function changeLang(lang) {
     });
 }
 
+const cooldownTime = 5000
+let cooldown = false
+
 send_button.addEventListener("click", () => {
+    if (cooldown) return
     const form_fields = ["name", "email", "subject"].map(id => document.getElementById(`form-${id}`))
     const error_fields = ["name", "email", "subject"].map(id => document.getElementById(`${id}-error`))
     let valid = true
@@ -234,6 +238,10 @@ send_button.addEventListener("click", () => {
         }, 5000)
     })
 
+    cooldown = true
+    setTimeout(() => {
+        cooldown = false
+    }, cooldownTime)
 })
 
 /*coursesTab.addEventListener("click", () => {
