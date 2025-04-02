@@ -201,7 +201,8 @@ function changeLang(lang) {
     });
 }
 
-const cooldownTime = 5000
+const cooldownTime = 10000
+let mailSendCount = 0
 let cooldown = false
 
 send_button.addEventListener("click", () => {
@@ -224,7 +225,7 @@ send_button.addEventListener("click", () => {
         document.getElementById("missing-mail-error").classList.toggle("show", emailFormError)
         form_fields[1].classList.toggle("error", emailFormError)
     }
-    if (!valid) return
+    if (!valid || mailSendCount > 10) return
     let param = {
         "name": form_fields[0].value,
         "email": form_fields[1].value,
@@ -237,6 +238,7 @@ send_button.addEventListener("click", () => {
         setTimeout(() => {
             elemSuccess.style.display = "none"
         }, 5000)
+        mailSendCount++
     }, function (error) {
         let elemError = document.getElementById("error-send-message")
         elemError.style.display = "block"
