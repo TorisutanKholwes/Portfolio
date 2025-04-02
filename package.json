@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "My website portfolio created by using [ReactJs](https://reactjs.org). \r ## Features\r - [x] 100% responsive\r - [x] Dark and light mode\r - [x] Smooth scroll\r - [x] Multi-language\r - [x] Link to all the project and GitHub repository",
   "scripts": {
-    "start": "npx parcel index.html",
-    "build": "parcel build index.html"
+    "start": "vite",
+    "start:dev": "vite --mode development",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,9 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@vercel/analytics": "^1.1.1",
-    "parcel": "^2.14.4"
+    "vite": "^5.4.16"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.14.4"
+    "sass-embedded": "^1.86.1"
   }
 }

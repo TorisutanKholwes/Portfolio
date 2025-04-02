@@ -90,6 +90,7 @@ nextBtn.addEventListener("click", () => {
 
 prevBtn.addEventListener("click", () => {
     let slideWith = slide.clientWidth;
+    console.log("ScrollLeft: " + carrousel_container.scrollLeft + " + " + slideWith + " = " + isGood(carrousel_container.scrollLeft + slideWith))
     if (isGood(carrousel_container.scrollLeft, slideWith)) return
     carrousel_container.scrollLeft -= slideWith;
     if (carrousel_container.scrollLeft - slideWith <= 0) {
