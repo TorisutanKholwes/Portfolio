@@ -222,12 +222,16 @@ send_button.addEventListener("click", () => {
         const error_field = error_fields[i]
         const value = field.value.trim()
         const hasError = value === ""
+        if (i === 1 && hasError && document.getElementById("missing-mail-error").className.includes("show")) {
+            document.getElementById("missing-mail-error").classList.toggle("show", false)
+        }
         error_field.classList.toggle("show", hasError)
         field.classList.toggle("error", hasError)
         valid = valid && !hasError
     }
     if (form_fields[1].value.trim() !== "") {
-        let emailFormError = !form_fields[1].value.trim().includes("@")
+        const regexMail = "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+        let emailFormError = !form_fields[1].value.trim().match(regexMail)
         valid = valid && !emailFormError
         document.getElementById("missing-mail-error").classList.toggle("show", emailFormError)
         form_fields[1].classList.toggle("error", emailFormError)

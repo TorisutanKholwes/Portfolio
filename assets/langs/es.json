@@ -26,7 +26,7 @@
   "inputNameError": "*El nombre es obligatorio",
   "inputEmailPlaceholder": "Email*",
   "inputEmailError": "*El correo electrónico es obligatorio",
-  "missingEmailError": "*El correo electrónico debe contener una @.",
+  "missingEmailError": "*El correo electrónico debe ser válido (Ejemplo: appelido.nombre@mail.com)",
   "inputSubjectPlaceholder": "Asunto*",
   "inputSubjectError": "*El asunto es obligatorio",
   "inputSendMessage": "Enviar mensaje",
