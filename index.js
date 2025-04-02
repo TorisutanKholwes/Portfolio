@@ -64,6 +64,7 @@ function isGood(carrousel, slide) {
             }
         }
     }
+    //console.log(carrousel)
     if (carrousel % 10 !== 0) {
         for (let i = 1; i < 10; i++) {
             if ((carrousel - i) % 10 === 0) {
@@ -72,11 +73,15 @@ function isGood(carrousel, slide) {
             }
         }
     }
+    console.log(carrousel + " " + slide + " " + (carrousel % slide))
     return carrousel % slide !== 0;
 }
 
 nextBtn.addEventListener("click", () => {
     let slideWith = slide.clientWidth;
+    if (carrousel_container % 1) {
+        slideWith = carrousel_container.scrollLeft;
+    }
     if (isGood(carrousel_container.scrollLeft, slideWith)) return
     carrousel_container.scrollLeft += slideWith;
     if (carrousel_container.scrollLeft + slideWith >= (numSlides-1) * slideWith) {
@@ -90,11 +95,10 @@ nextBtn.addEventListener("click", () => {
 
 prevBtn.addEventListener("click", () => {
     let slideWith = slide.clientWidth;
-    console.log("ScrollLeft: " + carrousel_container.scrollLeft + " + " + slideWith + " = " + isGood(carrousel_container.scrollLeft + slideWith))
-    if (isGood(carrousel_container.scrollLeft, slideWith)) return
     if (carrousel_container.scrollLeft % 1) {
-        carrousel_container.scrollLeft = Math.floor(carrousel_container.scrollLeft)
+        slideWith = carrousel_container.scrollLeft;
     }
+    if (isGood(carrousel_container.scrollLeft, slideWith)) return
     carrousel_container.scrollLeft -= slideWith;
     if (carrousel_container.scrollLeft - slideWith <= 0) {
         nextBtn.src = nextHover
