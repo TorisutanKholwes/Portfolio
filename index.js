@@ -217,6 +217,12 @@ send_button.addEventListener("click", () => {
         field.classList.toggle("error", hasError)
         valid = valid && !hasError
     }
+    if (form_fields[1].value.trim() !== "") {
+        let emailFormError = !form_fields[1].value.trim().includes("@")
+        valid = valid && !emailFormError
+        document.getElementById("missing-mail-error").classList.toggle("show", emailFormError)
+        form_fields[1].classList.toggle("error", emailFormError)
+    }
     if (!valid) return
     let param = {
         "name": form_fields[0].value,
