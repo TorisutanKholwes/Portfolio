@@ -16,6 +16,8 @@
   "seeProject": "Voir le projet",
   "javawarsDescription": "Un projet réalisé en Java permettant une utilisation simplifié de l'API de Guild Wars 2. Guild Wars 2 est un MMORPG sortie en 2012 et une API est disponible pour les développeurs. Ce projet contient de nombreuses classes permenttant une meilleure utilisation de l'API avec des commentaires (Projet en cours de développement et non disponible en open source pour l'instant).",
   "javawarsLanguages": "Langages utilisés : <strong>Java</strong>",
+  "javaEngineDescription": "JavaEngine est un moteur graphique 2D en Java. Actuellement, il est capable d'afficher des images, gérer les entrées clavier et souris, ainsi que de gérer les collisions entre les objets ayant un collider. Il est aussi possible de créer un personnage et de pouvoir se déplacer et sauter et une caméra est intégré pouvant se déplacer et zoomer. Le projet est toujours en cours de développement et de nouvelles fonctionnalités sont en cours d'ajout.",
+  "javaEngineLanguages": "Langages utilisés : <strong>Java</strong> (via <strong>JavaFX</strong>)",
   "softwareLogo": "Logo",
   "softwareName": "Titre",
   "softwareCompany": "Entreprise",

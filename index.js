@@ -37,7 +37,7 @@ const scrollType = {
     "contact": 5000
 }
 
-import { inject } from '@vercel/analytics';
+import {inject} from '@vercel/analytics';
 
 inject();
 
@@ -55,65 +55,32 @@ function vhToPx(vh, width) {
     return (vh / 100) * width;
 }
 
-function isGood(carrousel, slide) {
-    if (slide % 10 !== 0) {
-        for (let i = 1; i < 10; i++) {
-            if ((slide - i) % 10 === 0) {
-                slide -= i
-                break
-            }
+const carrouselLength = document.getElementById("project-carrousel").childElementCount
+let currentIndex = 0;
+
+function mod(n, m) {
+    return ((n % m) + m) % m;
+}
+
+const moveCarrousel = (direction) => {
+    const slideWidth = slide.clientWidth
+    currentIndex = mod(currentIndex + direction, carrouselLength);
+    carrousel_container.scrollTo(
+        {
+            left: slideWidth * currentIndex,
+            behavior: "smooth"
         }
-    }
-    //console.log(carrousel)
-    if (carrousel % 10 !== 0) {
-        for (let i = 1; i < 10; i++) {
-            if ((carrousel - i) % 10 === 0) {
-                carrousel -= i
-                break
-            }
-        }
-    }
-    console.log(carrousel + " " + slide + " " + (carrousel % slide))
-    return carrousel % slide !== 0;
+    );
 }
 
 nextBtn.addEventListener("click", () => {
-    let slideWith = slide.clientWidth;
-    if (carrousel_container % 1) {
-        slideWith = carrousel_container.scrollLeft;
-    }
-    if (isGood(carrousel_container.scrollLeft, slideWith)) return
-    carrousel_container.scrollLeft += slideWith;
-    if (carrousel_container.scrollLeft + slideWith >= (numSlides-1) * slideWith) {
-        nextBtn.src = nextActif
-        prevBtn.src = prevHover
-    } else {
-        nextBtn.src = nextHover
-        prevBtn.src = prevHover
-    }
-})
+    moveCarrousel(1);
+});
 
 prevBtn.addEventListener("click", () => {
-    let slideWith = slide.clientWidth;
-    if (carrousel_container.scrollLeft % 1) {
-        slideWith = carrousel_container.scrollLeft;
-    }
-    if (isGood(carrousel_container.scrollLeft, slideWith)) return
-    carrousel_container.scrollLeft -= slideWith;
-    if (carrousel_container.scrollLeft - slideWith <= 0) {
-        nextBtn.src = nextHover
-        prevBtn.src = prevActif
-    } else {
-        nextBtn.src = nextHover
-        prevBtn.src = prevHover
-    }
-})
+    moveCarrousel(-1);
+});
 
-window.addEventListener("resize", () => {
-    carrousel_container.scrollLeft = 0
-    prevBtn.src = prevActif
-    nextBtn.src = nextHover
-})
 
 redirectButton.forEach(button => {
     button.addEventListener("click", () => {
@@ -163,7 +130,7 @@ window.addEventListener("DOMContentLoaded", () => {
         type: 'GET',
         url: 'https://wakatime.com/share/@Torisutan/9bbba351-99bb-4558-a775-7164226010ae.json',
         dataType: 'jsonp',
-        success: function(response) {
+        success: function (response) {
             let totalTime = response.data["grand_total"]["total_seconds_including_other_language"]
             let averageTime = response.data["grand_total"]["daily_average_including_other_language"]
             alltime.innerText = timeToString(Math.floor(totalTime))

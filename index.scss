@@ -715,6 +715,7 @@ header {
 .project-button {
   //margin-top: pxToVw(30);
   @include responsive(margin-top, 30, 30);
+  @include responsive(margin-right, 15, 0)
 }
 
 .arrow-container {
