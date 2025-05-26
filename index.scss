@@ -372,6 +372,10 @@ header {
   cursor: pointer;
 }
 
+#softSkill {
+  padding-top: pxToVw(100);
+}
+
 #language {
   background: white;
   border-radius: 8px;
@@ -674,7 +678,7 @@ header {
   @include responsive(width, 560, 320);
 }
 
-.all-skill {
+.all-skill, #all-soft-skill {
   @media only screen and (max-width: 768px) {
     display: block;
     margin: auto;
@@ -685,6 +689,7 @@ header {
   grid-column-gap: pxToVw(40);
   justify-content: center;
 }
+
 
 // Projects styles
 .project-img {
@@ -1052,4 +1057,10 @@ header {
   top: pxToVw(-372);
   left: pxToVw(1378);
   float: right;
+}
+
+#copyGood {
+  color: green;
+  font-weight: 600;
+  display: none;
 }

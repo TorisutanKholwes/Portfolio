@@ -11,13 +11,6 @@ const nextBtn = document.getElementById("arrow-right")
 const prevBtn = document.getElementById("arrow-left")
 const redirectButton = document.querySelectorAll(".project-button")
 
-const coursesTab = document.getElementById("tab-courses")
-
-const nextActif = new URL("assets/arrow/arrowRightActif.svg", import.meta.url)
-const prevActif = new URL("assets/arrow/arrowLeftActif.svg", import.meta.url)
-const nextHover = new URL("assets/arrow/arrowRightHover.svg", import.meta.url)
-const prevHover = new URL("assets/arrow/arrowLeftHover.svg", import.meta.url)
-
 const sun = document.getElementById("sun")
 
 const langList = ["FR", "EN", "ES"]
@@ -237,7 +230,7 @@ send_button.addEventListener("click", () => {
 })*/
 
 const animElemClass = ["skill-bar"]
-const animElemSection = ["profile", "skill", "project", "software", "contact", "footer"]
+const animElemSection = ["profile", "skill", "project", "software", "contact", "footer", "softSkill"]
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -256,3 +249,16 @@ for (let i = 0; i < animElemSection.length; i++) {
     let element = document.querySelector(`#${animElemSection[i]}`)
     observer.observe(element)
 }
+
+document.querySelectorAll(".copyLink").forEach(clazz => {
+    clazz.addEventListener("click", () => {
+        let text = clazz.getAttribute("link")
+        navigator.clipboard.writeText(text).then(r => {
+            const copySuccess = document.getElementById("copyGood")
+            copySuccess.style.display = "block"
+            setTimeout(() => {
+                copySuccess.style.display = "none"
+            }, 3000)
+        });
+    })
+})
