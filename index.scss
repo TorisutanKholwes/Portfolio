@@ -233,7 +233,7 @@ header {
   z-index: 2;
 }
 
-#profile, #skill, #project, #software, #contact, #footer {
+#profile, #skill, #softSkill, #project, #software, #contact, #footer {
   transform: translateY(pxToVw(100));
   opacity: 0;
   transition: transform 2s ease, opacity .8s ease;
@@ -408,6 +408,7 @@ header {
 
   &:not(:checked) ~ #other-language {
       //display: none;
+    display: flex;
     max-height: 0;
     opacity: 0;
     visibility: hidden;
@@ -659,6 +660,7 @@ header {
   //margin-right: pxToVw(20);
   @include responsive(margin-right, 20, 20);
 }
+
 
 .language-skill {
   display: flex;
